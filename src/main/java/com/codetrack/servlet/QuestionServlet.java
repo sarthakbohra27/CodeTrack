@@ -1,4 +1,4 @@
-package com.codetrack.servlet;
+﻿package com.codetrack.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,25 +11,25 @@ import java.io.IOException;
 
 /**
  * ============================================================
- * CodeTrack – DSA Progress Tracker
- * QuestionServlet.java — Question CRUD Controller
+ * CodeTrack â€“ DSA Progress Tracker
+ * QuestionServlet.java â€” Question CRUD Controller
  * ============================================================
  * URL Pattern  : /questions
- * Protected    : Yes — requires active session
+ * Protected    : Yes â€” requires active session
  *
- * GET  /questions          → List all questions (with filters)
- * GET  /questions?id=X     → View single question
- * POST /questions/add      → Add new question
- * POST /questions/edit     → Update question
- * POST /questions/delete   → Delete question
- * POST /questions/favorite → Toggle favorite status
+ * GET  /questions          â†’ List all questions (with filters)
+ * GET  /questions?id=X     â†’ View single question
+ * POST /questions/add      â†’ Add new question
+ * POST /questions/edit     â†’ Update question
+ * POST /questions/delete   â†’ Delete question
+ * POST /questions/favorite â†’ Toggle favorite status
  * ============================================================
  */
 @WebServlet(name = "QuestionServlet", urlPatterns = {"/questions", "/questions/*"})
 public class QuestionServlet extends HttpServlet {
 
     /**
-     * GET /questions — Display questions list with optional filters.
+     * GET /questions â€” Display questions list with optional filters.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -50,11 +50,11 @@ public class QuestionServlet extends HttpServlet {
         // TODO: Call questionDAO.findWithFilters() or questionDAO.searchByTitle()
         //       and set results as request attribute before forwarding
 
-        req.getRequestDispatcher("/questions.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/questions.jsp").forward(req, resp);
     }
 
     /**
-     * POST /questions — Handle sub-actions via a hidden "action" field.
+     * POST /questions â€” Handle sub-actions via a hidden "action" field.
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -103,3 +103,4 @@ public class QuestionServlet extends HttpServlet {
         resp.getWriter().write("{\"status\": \"ok\"}");
     }
 }
+

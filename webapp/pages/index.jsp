@@ -1,14 +1,14 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="CodeTrack – Track your DSA practice across LeetCode, GeeksforGeeks, and Codeforces in one place."/>
+    <meta name="description" content="CodeTrack â€“ Track your DSA practice across LeetCode, GeeksforGeeks, and Codeforces in one place."/>
     <meta name="keywords"    content="DSA, LeetCode, GeeksforGeeks, Codeforces, coding tracker, algorithm practice"/>
     <meta name="author"      content="Sarthak Bohra"/>
 
-    <title>CodeTrack – DSA Progress Tracker</title>
+    <title>CodeTrack â€“ DSA Progress Tracker</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo/favicon.png"/>
@@ -28,7 +28,7 @@
 </head>
 <body class="landing-page">
 
-    <!-- ── Navigation ─────────────────────────────────────────── -->
+    <!-- â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
     <nav class="landing-nav" id="landingNav">
         <div class="nav-container">
             <a href="index.jsp" class="nav-logo" id="navLogo">
@@ -48,7 +48,7 @@
         </div>
     </nav>
 
-    <!-- ── Hero Section ───────────────────────────────────────── -->
+    <!-- â”€â”€ Hero Section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-badge">
@@ -82,7 +82,7 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-item">
-                    <strong>∞</strong>
+                    <strong>âˆž</strong>
                     <span>Questions</span>
                 </div>
             </div>
@@ -119,7 +119,7 @@
         </div>
     </section>
 
-    <!-- ── Features Section ───────────────────────────────────── -->
+    <!-- â”€â”€ Features Section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
     <section class="features-section" id="features">
         <div class="section-container">
             <div class="section-header">
@@ -161,7 +161,7 @@
         </div>
     </section>
 
-    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <!-- â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
     <footer class="landing-footer">
         <div class="footer-content">
             <div class="footer-logo">
@@ -169,7 +169,7 @@
                 <span>Code<strong>Track</strong></span>
             </div>
             <p class="footer-text">
-                Built with ❤️ by
+                Built with â¤ï¸ by
                 <a href="https://github.com/sarthakbohra27" target="_blank" rel="noopener">Sarthak Bohra</a>
             </p>
             <div class="footer-links">
@@ -185,3 +185,4 @@
     <script src="js/app.js"></script>
 </body>
 </html>
+

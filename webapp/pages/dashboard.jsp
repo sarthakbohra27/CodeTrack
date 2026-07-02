@@ -1,11 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Dashboard – CodeTrack</title>
+    <title>Dashboard â€“ CodeTrack</title>
     <link rel="icon" type="image/png" href="images/logo/favicon.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -21,13 +21,13 @@
 </head>
 <body class="app-body" data-theme="dark">
 
-    <!-- ── Include Components ──────────────────────────────────── -->
-    <%@ include file="components/navbar.jsp" %>
+    <!-- â”€â”€ Include Components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <%@ include file="../components/navbar.jsp" %>
 
     <div class="app-layout">
-        <%@ include file="components/sidebar.jsp" %>
+        <%@ include file="../components/sidebar.jsp" %>
 
-        <!-- ── Main Content ──────────────────────────────────────── -->
+        <!-- â”€â”€ Main Content â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
         <main class="main-content" id="mainContent">
 
             <!-- Page Header -->
@@ -41,13 +41,13 @@
                 </a>
             </div>
 
-            <!-- ── Stats Cards ──────────────────────────────────── -->
+            <!-- â”€â”€ Stats Cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
             <div class="stats-grid">
                 <div class="stat-card total" id="statTotal">
                     <div class="stat-card-icon"><i class="fa-solid fa-check-double"></i></div>
                     <div class="stat-card-info">
                         <span class="stat-card-value" id="totalCount">
-                            ${not empty totalCount ? totalCount : '–'}
+                            ${not empty totalCount ? totalCount : 'â€“'}
                         </span>
                         <span class="stat-card-label">Total Solved</span>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="stat-card-icon"><i class="fa-solid fa-circle"></i></div>
                     <div class="stat-card-info">
                         <span class="stat-card-value" id="easyCount">
-                            ${not empty easyCount ? easyCount : '–'}
+                            ${not empty easyCount ? easyCount : 'â€“'}
                         </span>
                         <span class="stat-card-label">Easy</span>
                     </div>
@@ -70,7 +70,7 @@
                     <div class="stat-card-icon"><i class="fa-solid fa-circle"></i></div>
                     <div class="stat-card-info">
                         <span class="stat-card-value" id="mediumCount">
-                            ${not empty mediumCount ? mediumCount : '–'}
+                            ${not empty mediumCount ? mediumCount : 'â€“'}
                         </span>
                         <span class="stat-card-label">Medium</span>
                     </div>
@@ -80,7 +80,7 @@
                     <div class="stat-card-icon"><i class="fa-solid fa-circle"></i></div>
                     <div class="stat-card-info">
                         <span class="stat-card-value" id="hardCount">
-                            ${not empty hardCount ? hardCount : '–'}
+                            ${not empty hardCount ? hardCount : 'â€“'}
                         </span>
                         <span class="stat-card-label">Hard</span>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="stat-card-icon"><i class="fa-solid fa-star"></i></div>
                     <div class="stat-card-info">
                         <span class="stat-card-value" id="favoritesCount">
-                            ${not empty favoritesCount ? favoritesCount : '–'}
+                            ${not empty favoritesCount ? favoritesCount : 'â€“'}
                         </span>
                         <span class="stat-card-label">Favorites</span>
                     </div>
@@ -100,14 +100,14 @@
                     <div class="stat-card-icon"><i class="fa-solid fa-tags"></i></div>
                     <div class="stat-card-info">
                         <span class="stat-card-value" id="topicsCount">
-                            ${not empty topicsCount ? topicsCount : '–'}
+                            ${not empty topicsCount ? topicsCount : 'â€“'}
                         </span>
                         <span class="stat-card-label">Topics Covered</span>
                     </div>
                 </div>
             </div>
 
-            <!-- ── Charts Row ───────────────────────────────────── -->
+            <!-- â”€â”€ Charts Row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
             <div class="charts-row">
                 <div class="chart-card" id="difficultyChartCard">
                     <div class="chart-card-header">
@@ -130,7 +130,7 @@
                 </div>
             </div>
 
-            <!-- ── Recent Questions Table ───────────────────────── -->
+            <!-- â”€â”€ Recent Questions Table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
             <div class="table-card" id="recentQuestionsCard">
                 <div class="table-card-header">
                     <h3>Recent Questions</h3>
@@ -166,7 +166,7 @@
     </div>
 
     <!-- Include Loader -->
-    <%@ include file="components/loader.jsp" %>
+    <%@ include file="../components/loader.jsp" %>
 
     <!-- Scripts -->
     <script src="js/app.js"></script>
@@ -175,3 +175,4 @@
     <script src="js/theme.js"></script>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-package com.codetrack.servlet;
+﻿package com.codetrack.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,11 +11,11 @@ import java.io.IOException;
 
 /**
  * ============================================================
- * CodeTrack – DSA Progress Tracker
- * DashboardServlet.java — Main Dashboard Controller
+ * CodeTrack â€“ DSA Progress Tracker
+ * DashboardServlet.java â€” Main Dashboard Controller
  * ============================================================
  * URL Pattern : /dashboard
- * Protected   : Yes — redirects to /login if not authenticated
+ * Protected   : Yes â€” redirects to /login if not authenticated
  *
  * Loads and passes to dashboard.jsp:
  *   - Total questions count
@@ -29,7 +29,7 @@ import java.io.IOException;
 public class DashboardServlet extends HttpServlet {
 
     /**
-     * GET /dashboard — Load dashboard data and forward to view.
+     * GET /dashboard â€” Load dashboard data and forward to view.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -49,6 +49,7 @@ public class DashboardServlet extends HttpServlet {
         //  req.setAttribute("difficultyCounts", difficultyCounts);
         //  req.setAttribute("recentQuestions", recentQuestions);
 
-        req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/dashboard.jsp").forward(req, resp);
     }
 }
+

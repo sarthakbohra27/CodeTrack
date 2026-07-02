@@ -1,4 +1,4 @@
-package com.codetrack.servlet;
+﻿package com.codetrack.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,12 +10,12 @@ import java.io.IOException;
 
 /**
  * ============================================================
- * CodeTrack – DSA Progress Tracker
- * RegisterServlet.java — Handles User Registration
+ * CodeTrack â€“ DSA Progress Tracker
+ * RegisterServlet.java â€” Handles User Registration
  * ============================================================
  * URL Pattern  : /register
- * GET  → Displays the registration page (register.jsp)
- * POST → Processes registration form
+ * GET  â†’ Displays the registration page (register.jsp)
+ * POST â†’ Processes registration form
  *
  * Validation (TODO):
  *   - Username uniqueness check
@@ -28,16 +28,16 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
 
     /**
-     * GET /register — Forward to registration page.
+     * GET /register â€” Forward to registration page.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/register.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/register.jsp").forward(req, resp);
     }
 
     /**
-     * POST /register — Process registration form submission.
+     * POST /register â€” Process registration form submission.
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -58,6 +58,7 @@ public class RegisterServlet extends HttpServlet {
 
         // Placeholder response
         req.setAttribute("error", "Registration functionality coming soon.");
-        req.getRequestDispatcher("/register.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/register.jsp").forward(req, resp);
     }
 }
+

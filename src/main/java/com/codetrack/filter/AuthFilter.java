@@ -1,4 +1,4 @@
-package com.codetrack.filter;
+﻿package com.codetrack.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -11,8 +11,8 @@ import java.util.Set;
 
 /**
  * ============================================================
- * CodeTrack – DSA Progress Tracker
- * AuthFilter.java — Authentication Guard Filter
+ * CodeTrack â€“ DSA Progress Tracker
+ * AuthFilter.java â€” Authentication Guard Filter
  * ============================================================
  * Intercepts all requests to protected URLs and redirects
  * unauthenticated users to the login page.
@@ -34,7 +34,7 @@ public class AuthFilter implements Filter {
         "/index.jsp"
     );
 
-    /** Path prefixes for static resources — always public. */
+    /** Path prefixes for static resources â€” always public. */
     private static final Set<String> PUBLIC_PREFIXES = Set.of(
         "/css/", "/js/", "/images/", "/assets/", "/favicon"
     );
@@ -78,3 +78,4 @@ public class AuthFilter implements Filter {
     @Override public void init(FilterConfig filterConfig) {}
     @Override public void destroy() {}
 }
+

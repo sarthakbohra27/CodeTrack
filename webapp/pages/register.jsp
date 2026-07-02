@@ -1,11 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Create your free CodeTrack account and start tracking your DSA practice."/>
-    <title>Register – CodeTrack</title>
+    <title>Register â€“ CodeTrack</title>
     <link rel="icon" type="image/png" href="images/logo/favicon.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -87,7 +87,7 @@
                                    autocomplete="username"
                                    required/>
                         </div>
-                        <span class="form-hint" id="usernameHint">3–50 chars, letters/numbers/_ only</span>
+                        <span class="form-hint" id="usernameHint">3â€“50 chars, letters/numbers/_ only</span>
                     </div>
                 </div>
 
@@ -160,3 +160,4 @@
 <script src="js/validation.js"></script>
 </body>
 </html>
+

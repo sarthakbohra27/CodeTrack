@@ -1,4 +1,4 @@
-package com.codetrack.servlet;
+﻿package com.codetrack.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,12 +11,12 @@ import java.io.IOException;
 
 /**
  * ============================================================
- * CodeTrack – DSA Progress Tracker
- * LoginServlet.java — Handles User Authentication
+ * CodeTrack â€“ DSA Progress Tracker
+ * LoginServlet.java â€” Handles User Authentication
  * ============================================================
  * URL Pattern  : /login
- * GET  → Displays the login page (login.jsp)
- * POST → Processes login credentials
+ * GET  â†’ Displays the login page (login.jsp)
+ * POST â†’ Processes login credentials
  *
  * On success: creates session and redirects to /dashboard
  * On failure: returns to login.jsp with error message
@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
     // private final UserDAO userDAO = DAOFactory.getUserDAO();
 
     /**
-     * GET /login — Forward to login page.
+     * GET /login â€” Forward to login page.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -43,11 +43,11 @@ public class LoginServlet extends HttpServlet {
         }
 
         // Forward to login JSP
-        req.getRequestDispatcher("/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
     }
 
     /**
-     * POST /login — Process login form submission.
+     * POST /login â€” Process login form submission.
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -63,8 +63,9 @@ public class LoginServlet extends HttpServlet {
         String usernameOrEmail = req.getParameter("usernameOrEmail");
         String password        = req.getParameter("password");
 
-        // Placeholder — redirect back to login with error
+        // Placeholder â€” redirect back to login with error
         req.setAttribute("error", "Login functionality coming soon.");
-        req.getRequestDispatcher("/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
     }
 }
+
