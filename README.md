@@ -116,6 +116,7 @@ CodeTrack/
 │   │   ├── model/                  # POJOs / Entity classes
 │   │   ├── dao/                    # Data Access Objects (JDBC)
 │   │   ├── servlet/                # Java Servlets (Controllers)
+│   │   ├── service/                # Business logic layer
 │   │   ├── util/                   # Utility helpers
 │   │   ├── filter/                 # Servlet Filters (Auth, etc.)
 │   │   ├── listener/               # Context / Session Listeners
@@ -123,16 +124,6 @@ CodeTrack/
 │   └── test/java/com/codetrack/    # Unit tests
 │
 ├── webapp/                         # Web resources (served by Tomcat)
-│   ├── index.jsp                   # Landing / Home page
-│   ├── login.jsp                   # Login page
-│   ├── register.jsp                # Registration page
-│   ├── dashboard.jsp               # Main dashboard
-│   ├── questions.jsp               # Question list
-│   ├── add-question.jsp            # Add new question
-│   ├── edit-question.jsp           # Edit question
-│   ├── analytics.jsp               # Analytics & charts
-│   ├── profile.jsp                 # User profile
-│   ├── settings.jsp                # App settings
 │   │
 │   ├── css/                        # Stylesheets
 │   │   ├── variables.css           # CSS custom properties
@@ -159,11 +150,8 @@ CodeTrack/
 │   │   └── theme.js                # Theme toggle
 │   │
 │   ├── images/                     # Static images
-│   │   ├── logo/
-│   │   ├── icons/
-│   │   ├── avatars/
-│   │   ├── backgrounds/
-│   │   └── screenshots/
+│   │
+│   ├── assets/                     # Misc static assets
 │   │
 │   ├── components/                 # Reusable JSP fragments
 │   │   ├── navbar.jsp
@@ -172,15 +160,35 @@ CodeTrack/
 │   │   ├── header.jsp
 │   │   └── loader.jsp
 │   │
+│   ├── pages/                      # Application JSP pages
+│   │   ├── index.jsp               # Landing / Home page
+│   │   ├── login.jsp               # Login page
+│   │   ├── register.jsp            # Registration page
+│   │   ├── dashboard.jsp           # Main dashboard
+│   │   ├── questions.jsp           # Question list
+│   │   ├── add-question.jsp        # Add new question
+│   │   ├── edit-question.jsp       # Edit question
+│   │   ├── analytics.jsp           # Analytics & charts
+│   │   ├── profile.jsp             # User profile
+│   │   ├── settings.jsp            # App settings
+│   │   └── error.jsp               # Generic error page
+│   │
 │   ├── WEB-INF/
 │   │   └── web.xml                 # Deployment descriptor
 │   │
-│   └── assets/                     # Misc static assets
+│   └── favicon.ico
 │
 ├── test/                           # Integration / manual tests
-├── .gitignore
-├── LICENSE
-├── README.md
+│
+├── .vscode/                        # VS Code workspace settings
+│
+├── .editorconfig                   # Editor formatting rules
+├── .gitignore                      # Git ignore rules
+├── CHANGELOG.md                    # Project changelog
+├── CONTRIBUTING.md                 # Contribution guidelines
+├── CODE_OF_CONDUCT.md              # Community standards
+├── LICENSE                         # MIT License
+├── README.md                       # Project overview
 └── pom.xml                         # Maven build file
 ```
 
