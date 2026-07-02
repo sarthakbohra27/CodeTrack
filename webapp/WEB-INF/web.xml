@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================
+  CodeTrack – DSA Progress Tracker
+  web.xml — Deployment Descriptor
+  ============================================================
+  Configures Servlets, Filters, Listeners, Error Pages,
+  Session management, and security settings for Tomcat.
+  ============================================================
+-->
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!-- ── Application Display Name ─────────────────────────── -->
+    <display-name>CodeTrack – DSA Progress Tracker</display-name>
+    <description>A web application to track DSA practice progress.</description>
+
+    <!-- ── Context Parameters ────────────────────────────────── -->
+    <context-param>
+        <param-name>appVersion</param-name>
+        <param-value>1.0.0-SNAPSHOT</param-value>
+    </context-param>
+
+    <!-- ── Session Configuration ─────────────────────────────── -->
+    <session-config>
+        <!-- Session expires after 30 minutes of inactivity -->
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure> <!-- Set to true in production (HTTPS) -->
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <!-- ── Welcome Files ─────────────────────────────────────── -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- ── Error Pages ───────────────────────────────────────── -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/webapp/error-404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/webapp/error-500.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/webapp/error-500.jsp</location>
+    </error-page>
+
+</web-app>

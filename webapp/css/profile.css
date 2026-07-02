@@ -1,0 +1,94 @@
+/* ============================================================
+   CodeTrack – profile.css — Profile Page Styles
+   ============================================================
+   Extended styles for the Profile and Settings pages.
+   ============================================================ */
+
+/* ── Settings Card ───────────────────────────────────────── */
+.settings-layout {
+  max-width:     720px;
+}
+
+.settings-section {
+  background:    var(--bg-surface);
+  border:        1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding:       var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.settings-section-header {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--space-3);
+  margin-bottom: var(--space-5);
+  padding-bottom:var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.settings-section-icon {
+  width:         40px;
+  height:        40px;
+  background:    hsl(258 75% 60% / 0.12);
+  border-radius: var(--radius-md);
+  display:       flex;
+  align-items:   center;
+  justify-content:center;
+  color:         var(--clr-primary-300);
+}
+.settings-section-header h3 { font-size: var(--text-lg); font-weight: var(--fw-semibold); }
+
+/* ── Toggle Switch ───────────────────────────────────────── */
+.toggle-row {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         var(--space-3) 0;
+  border-bottom:   1px solid var(--border-subtle);
+}
+.toggle-row:last-child { border-bottom: none; }
+
+.toggle-info h4 { font-size: var(--text-sm); font-weight: var(--fw-medium); }
+.toggle-info p  { font-size: var(--text-xs); color: var(--text-muted); }
+
+.toggle-switch {
+  position: relative;
+  width:    44px;
+  height:   24px;
+  flex-shrink:0;
+}
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-slider {
+  position:      absolute;
+  inset:         0;
+  background:    var(--bg-subtle);
+  border-radius: var(--radius-full);
+  cursor:        pointer;
+  transition:    all var(--transition-fast);
+  border:        1px solid var(--border-default);
+}
+.toggle-slider::before {
+  content:       '';
+  position:      absolute;
+  width:         18px;
+  height:        18px;
+  left:          2px;
+  top:           2px;
+  background:    white;
+  border-radius: var(--radius-full);
+  transition:    transform var(--transition-fast);
+  box-shadow:    var(--shadow-sm);
+}
+.toggle-switch input:checked + .toggle-slider {
+  background:   var(--clr-primary-500);
+  border-color: var(--clr-primary-600);
+}
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* ── Danger Zone ─────────────────────────────────────────── */
+.danger-zone {
+  background:    hsl(0 55% 9%);
+  border-color:  hsl(0 50% 22%);
+}
+.danger-zone .settings-section-icon { background: hsl(0 60% 12%); color: var(--clr-error); }

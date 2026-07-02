@@ -1,0 +1,181 @@
+/* ============================================================
+   CodeTrack – DSA Progress Tracker
+   variables.css — Design System (CSS Custom Properties)
+   ============================================================
+   All color, spacing, typography, shadow, and animation tokens
+   are defined here. Import this FIRST in every page.
+   ============================================================ */
+
+/* ── Dark Theme (Default) ─────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+
+  /* ── Color Palette ────────────────────────────────────────
+     Primary: Electric Violet
+     Secondary: Cyan Glow
+     Accent: Amber            */
+  --clr-primary-50:   hsl(258, 100%, 95%);
+  --clr-primary-100:  hsl(258, 90%,  88%);
+  --clr-primary-300:  hsl(258, 80%,  70%);
+  --clr-primary-500:  hsl(258, 75%,  60%);   /* Main brand */
+  --clr-primary-600:  hsl(258, 70%,  52%);
+  --clr-primary-700:  hsl(258, 68%,  44%);
+
+  --clr-secondary-400: hsl(192, 95%, 55%);
+  --clr-secondary-500: hsl(192, 90%, 45%);
+
+  --clr-accent-400:    hsl(38,  95%, 60%);
+  --clr-accent-500:    hsl(38,  90%, 52%);
+
+  /* ── Difficulty Colors ─────────────────────────────────── */
+  --clr-easy:          hsl(142, 70%, 50%);
+  --clr-easy-bg:       hsl(142, 70%, 12%);
+  --clr-medium:        hsl(38,  90%, 52%);
+  --clr-medium-bg:     hsl(38,  80%, 12%);
+  --clr-hard:          hsl(0,   80%, 58%);
+  --clr-hard-bg:       hsl(0,   60%, 12%);
+
+  /* ── Semantic Colors ───────────────────────────────────── */
+  --clr-success:       hsl(142, 65%, 48%);
+  --clr-warning:       hsl(38,  90%, 52%);
+  --clr-error:         hsl(0,   75%, 58%);
+  --clr-info:          hsl(205, 90%, 58%);
+
+  /* ── Dark Background Scale ─────────────────────────────── */
+  --bg-base:           hsl(225, 18%, 8%);    /* Deepest background */
+  --bg-surface:        hsl(225, 15%, 12%);   /* Cards / panels */
+  --bg-elevated:       hsl(225, 14%, 17%);   /* Modals / dropdowns */
+  --bg-overlay:        hsl(225, 12%, 22%);   /* Hover states */
+  --bg-subtle:         hsl(225, 10%, 26%);   /* Input backgrounds */
+
+  /* ── Text Scale ─────────────────────────────────────────── */
+  --text-primary:      hsl(220, 20%, 96%);
+  --text-secondary:    hsl(220, 10%, 72%);
+  --text-muted:        hsl(220,  8%, 50%);
+  --text-disabled:     hsl(220,  6%, 36%);
+  --text-inverse:      hsl(225, 18%, 8%);
+
+  /* ── Border ─────────────────────────────────────────────── */
+  --border-subtle:     hsl(225, 12%, 20%);
+  --border-default:    hsl(225, 12%, 28%);
+  --border-strong:     hsl(225, 12%, 40%);
+  --border-focus:      var(--clr-primary-500);
+
+  /* ── Gradient Definitions ───────────────────────────────── */
+  --gradient-primary:  linear-gradient(135deg, hsl(258,75%,60%) 0%, hsl(192,90%,45%) 100%);
+  --gradient-hero:     linear-gradient(135deg, hsl(225,18%,8%) 0%, hsl(258,30%,14%) 50%, hsl(225,18%,8%) 100%);
+  --gradient-card:     linear-gradient(135deg, hsl(225,15%,12%) 0%, hsl(225,12%,16%) 100%);
+  --gradient-easy:     linear-gradient(135deg, hsl(142,60%,16%) 0%, hsl(142,50%,12%) 100%);
+  --gradient-medium:   linear-gradient(135deg, hsl(38,70%,16%)  0%, hsl(38,60%,12%)  100%);
+  --gradient-hard:     linear-gradient(135deg, hsl(0,55%,18%)   0%, hsl(0,50%,12%)   100%);
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --shadow-xs:   0 1px  2px  hsl(225 18% 4% / 0.4);
+  --shadow-sm:   0 2px  4px  hsl(225 18% 4% / 0.5);
+  --shadow-md:   0 4px  12px hsl(225 18% 4% / 0.6);
+  --shadow-lg:   0 8px  24px hsl(225 18% 4% / 0.7);
+  --shadow-xl:   0 16px 48px hsl(225 18% 4% / 0.8);
+  --shadow-glow: 0 0   20px  hsl(258 75% 60% / 0.3);
+
+  /* ── Glassmorphism ──────────────────────────────────────── */
+  --glass-bg:      hsl(225 15% 12% / 0.7);
+  --glass-border:  hsl(225 12% 30% / 0.5);
+  --glass-blur:    blur(16px);
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-sans:   'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  --text-xs:     0.75rem;   /* 12px */
+  --text-sm:     0.875rem;  /* 14px */
+  --text-base:   1rem;      /* 16px */
+  --text-lg:     1.125rem;  /* 18px */
+  --text-xl:     1.25rem;   /* 20px */
+  --text-2xl:    1.5rem;    /* 24px */
+  --text-3xl:    1.875rem;  /* 30px */
+  --text-4xl:    2.25rem;   /* 36px */
+  --text-5xl:    3rem;      /* 48px */
+
+  --fw-light:    300;
+  --fw-normal:   400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extrabold:800;
+
+  --leading-tight: 1.25;
+  --leading-snug:  1.375;
+  --leading-normal:1.5;
+  --leading-relaxed:1.625;
+
+  /* ── Spacing ─────────────────────────────────────────────── */
+  --space-1:   0.25rem;   /* 4px  */
+  --space-2:   0.5rem;    /* 8px  */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+
+  /* ── Border Radius ──────────────────────────────────────── */
+  --radius-xs:  0.25rem;   /* 4px  */
+  --radius-sm:  0.5rem;    /* 8px  */
+  --radius-md:  0.75rem;   /* 12px */
+  --radius-lg:  1rem;      /* 16px */
+  --radius-xl:  1.5rem;    /* 24px */
+  --radius-2xl: 2rem;      /* 32px */
+  --radius-full:9999px;
+
+  /* ── Layout Dimensions ──────────────────────────────────── */
+  --navbar-height:  64px;
+  --sidebar-width:  260px;
+  --sidebar-collapsed-width: 72px;
+  --content-max-width: 1400px;
+
+  /* ── Transitions ─────────────────────────────────────────── */
+  --transition-fast:    150ms ease;
+  --transition-base:    250ms ease;
+  --transition-slow:    400ms ease;
+  --transition-bounce:  300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-Index Scale ───────────────────────────────────────── */
+  --z-base:     1;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-tooltip:  600;
+}
+
+/* ── Light Theme ──────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-base:        hsl(220, 20%, 98%);
+  --bg-surface:     hsl(0,   0%,  100%);
+  --bg-elevated:    hsl(220, 15%, 97%);
+  --bg-overlay:     hsl(220, 12%, 93%);
+  --bg-subtle:      hsl(220, 10%, 90%);
+
+  --text-primary:   hsl(225, 25%, 12%);
+  --text-secondary: hsl(225, 15%, 38%);
+  --text-muted:     hsl(225, 10%, 55%);
+  --text-disabled:  hsl(225,  8%, 70%);
+
+  --border-subtle:  hsl(220, 15%, 90%);
+  --border-default: hsl(220, 12%, 82%);
+  --border-strong:  hsl(220, 10%, 68%);
+
+  --glass-bg:     hsl(0 0% 100% / 0.8);
+  --glass-border: hsl(220 15% 85% / 0.7);
+
+  --shadow-xs:   0 1px  2px  hsl(220 15% 50% / 0.08);
+  --shadow-sm:   0 2px  4px  hsl(220 15% 50% / 0.10);
+  --shadow-md:   0 4px  12px hsl(220 15% 50% / 0.12);
+  --shadow-lg:   0 8px  24px hsl(220 15% 50% / 0.14);
+  --shadow-xl:   0 16px 48px hsl(220 15% 50% / 0.16);
+}

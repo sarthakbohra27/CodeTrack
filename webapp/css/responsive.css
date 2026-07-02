@@ -1,0 +1,54 @@
+/* ============================================================
+   CodeTrack – responsive.css — Media Queries
+   ============================================================ */
+
+/* ── Breakpoints
+   xs:  < 480px   (Small phones)
+   sm:  480-640px (Large phones)
+   md:  640-768px (Tablets portrait)
+   lg:  768-1024px(Tablets landscape)
+   xl:  > 1024px  (Desktops)
+   ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 1200px) {
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .main-content  { margin-left: 0; max-width: 100%; padding: var(--space-6); }
+  .charts-row    { grid-template-columns: 1fr; }
+  .app-sidebar   { transform: translateX(-100%); z-index: var(--z-overlay); }
+  .app-sidebar.open { transform: translateX(0); box-shadow: var(--shadow-xl); }
+}
+
+@media (max-width: 768px) {
+  .stats-grid    { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+  .page-header   { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+  .form-row      { grid-template-columns: 1fr; }
+  .hero          { flex-direction: column; text-align: center; }
+  .hero-cta      { justify-content: center; }
+  .hero-stats    { justify-content: center; }
+  .hero-visual   { display: none; }
+  .features-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .main-content  { padding: var(--space-4); }
+  .stats-grid    { grid-template-columns: 1fr 1fr; }
+  .stat-card-value { font-size: var(--text-2xl); }
+  .auth-form-card { padding: var(--space-5); }
+  .social-buttons { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid    { grid-template-columns: 1fr; }
+  .hero-title    { font-size: var(--text-3xl); }
+  .btn-lg        { padding: var(--space-3) var(--space-6); font-size: var(--text-sm); }
+}
+
+/* ── Print Styles ─────────────────────────────────────────── */
+@media print {
+  .app-navbar, .app-sidebar, .btn { display: none !important; }
+  .main-content { margin: 0; padding: 0; max-width: 100%; }
+  body { background: white; color: black; }
+}

@@ -1,0 +1,145 @@
+# ============================================================
+# CodeTrack – DSA Progress Tracker
+# .gitignore — Excludes compiled, generated, and IDE files
+# ============================================================
+
+# ─────────────────────────────────────────────────────────────
+# Java Compiled Output
+# ─────────────────────────────────────────────────────────────
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+# ─────────────────────────────────────────────────────────────
+# Maven
+# ─────────────────────────────────────────────────────────────
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ─────────────────────────────────────────────────────────────
+# Apache Tomcat
+# ─────────────────────────────────────────────────────────────
+work/
+logs/
+temp/
+webapps/ROOT/
+webapps/manager/
+webapps/host-manager/
+*.pid
+
+# ─────────────────────────────────────────────────────────────
+# VS Code
+# ─────────────────────────────────────────────────────────────
+.vscode/
+*.vscodeignore
+.history/
+
+# ─────────────────────────────────────────────────────────────
+# IntelliJ IDEA
+# ─────────────────────────────────────────────────────────────
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+.idea_modules/
+
+# ─────────────────────────────────────────────────────────────
+# Eclipse
+# ─────────────────────────────────────────────────────────────
+.classpath
+.project
+.settings/
+.factorypath
+
+# ─────────────────────────────────────────────────────────────
+# NetBeans
+# ─────────────────────────────────────────────────────────────
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+# ─────────────────────────────────────────────────────────────
+# OS Generated Files
+# ─────────────────────────────────────────────────────────────
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+*.lnk
+
+# Linux
+*~
+.nfs*
+
+# ─────────────────────────────────────────────────────────────
+# Logs
+# ─────────────────────────────────────────────────────────────
+*.log
+*.log.*
+log/
+logs/
+
+# ─────────────────────────────────────────────────────────────
+# Database & Secrets
+# ─────────────────────────────────────────────────────────────
+*.sql.bak
+db-config.properties
+application-local.properties
+secrets.properties
+*.env
+.env
+.env.local
+.env.production
+
+# ─────────────────────────────────────────────────────────────
+# Compiled Web Resources
+# ─────────────────────────────────────────────────────────────
+*.min.css
+*.min.js
+node_modules/
+
+# ─────────────────────────────────────────────────────────────
+# Test Reports
+# ─────────────────────────────────────────────────────────────
+surefire-reports/
+test-results/
+
+# ─────────────────────────────────────────────────────────────
+# Misc
+# ─────────────────────────────────────────────────────────────
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig

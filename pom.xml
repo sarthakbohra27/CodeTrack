@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================
+  CodeTrack – DSA Progress Tracker
+  pom.xml — Maven Build Configuration
+  ============================================================
+  Author  : Sarthak Bohra
+  GitHub  : https://github.com/sarthakbohra27
+  ============================================================
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ─── Project Coordinates ─────────────────────────────── -->
+    <groupId>com.codetrack</groupId>
+    <artifactId>CodeTrack</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <!-- ─── Project Metadata ─────────────────────────────────── -->
+    <name>CodeTrack – DSA Progress Tracker</name>
+    <description>
+        A web application that helps students track their Data Structures
+        and Algorithms practice across LeetCode, GeeksforGeeks, and Codeforces.
+    </description>
+    <url>https://github.com/sarthakbohra27/CodeTrack</url>
+
+    <!-- ─── Developer Info ───────────────────────────────────── -->
+    <developers>
+        <developer>
+            <id>sarthakbohra27</id>
+            <name>Sarthak Bohra</name>
+            <url>https://github.com/sarthakbohra27</url>
+            <roles>
+                <role>Lead Developer</role>
+                <role>Architect</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <!-- ─── License ──────────────────────────────────────────── -->
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- ─── Source Control ───────────────────────────────────── -->
+    <scm>
+        <connection>scm:git:git://github.com/sarthakbohra27/CodeTrack.git</connection>
+        <developerConnection>scm:git:ssh://github.com:sarthakbohra27/CodeTrack.git</developerConnection>
+        <url>https://github.com/sarthakbohra27/CodeTrack</url>
+    </scm>
+
+    <!-- ─── Global Properties ────────────────────────────────── -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Dependency Versions -->
+        <jakarta.servlet.version>6.0.0</jakarta.servlet.version>
+        <jakarta.servlet.jsp.version>3.1.0</jakarta.servlet.jsp.version>
+        <mysql.connector.version>8.2.0</mysql.connector.version>
+        <jstl.version>3.0.1</jstl.version>
+        <junit.version>5.10.0</junit.version>
+        <mockito.version>5.5.0</mockito.version>
+        <slf4j.version>2.0.9</slf4j.version>
+        <logback.version>1.4.11</logback.version>
+        <gson.version>2.10.1</gson.version>
+    </properties>
+
+    <!-- ─── Dependencies ─────────────────────────────────────── -->
+    <dependencies>
+
+        <!-- Jakarta Servlet API (provided by Tomcat) -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>${jakarta.servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Jakarta JSP API (provided by Tomcat) -->
+        <dependency>
+            <groupId>jakarta.servlet.jsp</groupId>
+            <artifactId>jakarta.servlet.jsp-api</artifactId>
+            <version>${jakarta.servlet.jsp.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JSTL — JSP Standard Tag Library -->
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <!-- MySQL JDBC Connector -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql.connector.version}</version>
+        </dependency>
+
+        <!-- Google Gson — JSON serialization/deserialization -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <!-- SLF4J Logging API -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Logback — SLF4J Implementation -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <!-- ── Test Dependencies ─────────────────────────────── -->
+
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Mockito -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- ─── Build Configuration ──────────────────────────────── -->
+    <build>
+        <finalName>CodeTrack</finalName>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+
+        <plugins>
+
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- Maven WAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <warSourceDirectory>webapp</warSourceDirectory>
+                    <webXml>webapp/WEB-INF/web.xml</webXml>
+                    <failOnMissingWebXml>true</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Surefire Plugin (Unit Tests) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <useModulePath>false</useModulePath>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Resources Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

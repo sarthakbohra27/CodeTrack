@@ -1,0 +1,118 @@
+/* ============================================================
+   CodeTrack – forms.css — Form and Input Styles
+   ============================================================ */
+
+/* ── Form Card ───────────────────────────────────────────── */
+.form-card {
+  background:    var(--bg-surface);
+  border:        1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding:       var(--space-8);
+  animation:     fadeInUp 0.4s ease forwards;
+}
+
+.form-card-header {
+  margin-bottom: var(--space-6);
+  padding-bottom:var(--space-5);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.form-card-header h2 { font-size: var(--text-xl); font-weight: var(--fw-semibold); }
+.form-card-header p  { color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-1); }
+
+/* ── Select Dropdown ──────────────────────────────────────── */
+select.form-control {
+  padding-left:    var(--space-4);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-4) center;
+  background-size:  1.2rem;
+  appearance:       none;
+  cursor:           pointer;
+}
+
+/* ── Textarea ─────────────────────────────────────────────── */
+textarea.form-control {
+  padding-left:  var(--space-4);
+  resize:        vertical;
+  min-height:    100px;
+}
+
+/* ── URL Input (no left icon) ─────────────────────────────── */
+.form-control.no-icon { padding-left: var(--space-4); }
+
+/* ── Form Actions ─────────────────────────────────────────── */
+.form-actions {
+  display:         flex;
+  align-items:     center;
+  justify-content: flex-end;
+  gap:             var(--space-3);
+  padding-top:     var(--space-6);
+  border-top:      1px solid var(--border-subtle);
+  margin-top:      var(--space-2);
+}
+
+/* ── Tag Input (for future topic tags) ───────────────────── */
+.tag-input-wrapper {
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           var(--space-2);
+  padding:       var(--space-2) var(--space-3);
+  background:    var(--bg-subtle);
+  border:        1.5px solid var(--border-default);
+  border-radius: var(--radius-md);
+  min-height:    44px;
+  cursor:        text;
+  transition:    border-color var(--transition-fast);
+}
+.tag-input-wrapper:focus-within { border-color: var(--border-focus); box-shadow: 0 0 0 3px hsl(258 75% 60% / 0.15); }
+
+.tag {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--space-1);
+  background:    hsl(258 75% 60% / 0.15);
+  color:         var(--clr-primary-300);
+  border-radius: var(--radius-sm);
+  padding:       2px var(--space-2);
+  font-size:     var(--text-xs);
+  font-weight:   var(--fw-medium);
+}
+.tag-remove {
+  background: none;
+  border:     none;
+  color:      inherit;
+  cursor:     pointer;
+  font-size:  10px;
+  opacity:    0.7;
+  line-height:1;
+}
+.tag-remove:hover { opacity: 1; }
+
+/* ── Difficulty Selector ──────────────────────────────────── */
+.difficulty-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:     var(--space-3);
+}
+.difficulty-option {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--space-2);
+  padding:         var(--space-3);
+  border:          2px solid var(--border-default);
+  border-radius:   var(--radius-md);
+  cursor:          pointer;
+  font-size:       var(--text-sm);
+  font-weight:     var(--fw-semibold);
+  transition:      all var(--transition-fast);
+}
+.difficulty-option.easy   { color: var(--clr-easy);   }
+.difficulty-option.medium { color: var(--clr-medium); }
+.difficulty-option.hard   { color: var(--clr-hard);   }
+
+.difficulty-option.selected.easy   { background: var(--clr-easy-bg);   border-color: var(--clr-easy);   }
+.difficulty-option.selected.medium { background: var(--clr-medium-bg); border-color: var(--clr-medium); }
+.difficulty-option.selected.hard   { background: var(--clr-hard-bg);   border-color: var(--clr-hard);   }
+
+.difficulty-option input[type="radio"] { display: none; }
