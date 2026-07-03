@@ -1,181 +1,306 @@
 /* ============================================================
-   CodeTrack – DSA Progress Tracker
-   variables.css — Design System (CSS Custom Properties)
+   CodeTrack – Design System Variables
+   Inspired by: GitHub, Vercel, Linear, Notion, LeetCode, Stripe
    ============================================================
-   All color, spacing, typography, shadow, and animation tokens
-   are defined here. Import this FIRST in every page.
+   TABLE OF CONTENTS
+   1. Dark Theme (Default)
+   2. Light Theme
+   3. Typography Scale
+   4. Spacing Scale
+   5. Border Radius
+   6. Shadows
+   7. Transitions
+   8. Z-Index Scale
+   9. Breakpoints (reference only — used in responsive.css)
    ============================================================ */
 
-/* ── Dark Theme (Default) ─────────────────────────────────── */
+/* ============================================================
+   1. DARK THEME (Default)
+   ============================================================ */
 :root,
 [data-theme="dark"] {
 
-  /* ── Color Palette ────────────────────────────────────────
-     Primary: Electric Violet
-     Secondary: Cyan Glow
-     Accent: Amber            */
-  --clr-primary-50:   hsl(258, 100%, 95%);
-  --clr-primary-100:  hsl(258, 90%,  88%);
-  --clr-primary-300:  hsl(258, 80%,  70%);
-  --clr-primary-500:  hsl(258, 75%,  60%);   /* Main brand */
-  --clr-primary-600:  hsl(258, 70%,  52%);
-  --clr-primary-700:  hsl(258, 68%,  44%);
+  /* ── Background & Surface ─────────────────────────────── */
+  --color-bg:           #0F172A;   /* Page background */
+  --color-surface:      #1E293B;   /* Cards, panels */
+  --color-surface-2:    #263548;   /* Nested surfaces */
+  --color-surface-3:    #2D3F55;   /* Hover surfaces */
 
-  --clr-secondary-400: hsl(192, 95%, 55%);
-  --clr-secondary-500: hsl(192, 90%, 45%);
+  /* ── Primary Brand ────────────────────────────────────── */
+  --color-primary:       #6366F1;
+  --color-primary-hover: #4F46E5;
+  --color-primary-light: rgba(99, 102, 241, 0.12);
+  --color-primary-glow:  rgba(99, 102, 241, 0.30);
 
-  --clr-accent-400:    hsl(38,  95%, 60%);
-  --clr-accent-500:    hsl(38,  90%, 52%);
+  /* ── Semantic Colors ──────────────────────────────────── */
+  --color-success:       #22C55E;
+  --color-success-light: rgba(34, 197, 94, 0.12);
+  --color-warning:       #F59E0B;
+  --color-warning-light: rgba(245, 158, 11, 0.12);
+  --color-danger:        #EF4444;
+  --color-danger-hover:  #DC2626;
+  --color-danger-light:  rgba(239, 68, 68, 0.12);
+  --color-info:          #38BDF8;
+  --color-info-light:    rgba(56, 189, 248, 0.12);
 
-  /* ── Difficulty Colors ─────────────────────────────────── */
-  --clr-easy:          hsl(142, 70%, 50%);
-  --clr-easy-bg:       hsl(142, 70%, 12%);
-  --clr-medium:        hsl(38,  90%, 52%);
-  --clr-medium-bg:     hsl(38,  80%, 12%);
-  --clr-hard:          hsl(0,   80%, 58%);
-  --clr-hard-bg:       hsl(0,   60%, 12%);
+  /* ── Text ─────────────────────────────────────────────── */
+  --color-text:          #F8FAFC;
+  --color-text-secondary:#94A3B8;
+  --color-text-muted:    #64748B;
+  --color-text-inverse:  #0F172A;
+  --color-text-link:     #818CF8;
+  --color-text-link-hover:#A5B4FC;
 
-  /* ── Semantic Colors ───────────────────────────────────── */
-  --clr-success:       hsl(142, 65%, 48%);
-  --clr-warning:       hsl(38,  90%, 52%);
-  --clr-error:         hsl(0,   75%, 58%);
-  --clr-info:          hsl(205, 90%, 58%);
+  /* ── Borders ──────────────────────────────────────────── */
+  --color-border:        #334155;
+  --color-border-light:  #1E293B;
+  --color-border-focus:  #6366F1;
 
-  /* ── Dark Background Scale ─────────────────────────────── */
-  --bg-base:           hsl(225, 18%, 8%);    /* Deepest background */
-  --bg-surface:        hsl(225, 15%, 12%);   /* Cards / panels */
-  --bg-elevated:       hsl(225, 14%, 17%);   /* Modals / dropdowns */
-  --bg-overlay:        hsl(225, 12%, 22%);   /* Hover states */
-  --bg-subtle:         hsl(225, 10%, 26%);   /* Input backgrounds */
+  /* ── Difficulty Badge Colors ──────────────────────────── */
+  --color-easy:          #22C55E;
+  --color-easy-light:    rgba(34, 197, 94, 0.12);
+  --color-medium:        #F59E0B;
+  --color-medium-light:  rgba(245, 158, 11, 0.12);
+  --color-hard:          #EF4444;
+  --color-hard-light:    rgba(239, 68, 68, 0.12);
 
-  /* ── Text Scale ─────────────────────────────────────────── */
-  --text-primary:      hsl(220, 20%, 96%);
-  --text-secondary:    hsl(220, 10%, 72%);
-  --text-muted:        hsl(220,  8%, 50%);
-  --text-disabled:     hsl(220,  6%, 36%);
-  --text-inverse:      hsl(225, 18%, 8%);
+  /* ── Scrollbar ────────────────────────────────────────── */
+  --scrollbar-thumb:     #334155;
+  --scrollbar-track:     #1E293B;
+  --scrollbar-thumb-hover:#475569;
 
-  /* ── Border ─────────────────────────────────────────────── */
-  --border-subtle:     hsl(225, 12%, 20%);
-  --border-default:    hsl(225, 12%, 28%);
-  --border-strong:     hsl(225, 12%, 40%);
-  --border-focus:      var(--clr-primary-500);
+  /* ── Overlay ──────────────────────────────────────────── */
+  --color-overlay:       rgba(0, 0, 0, 0.60);
 
-  /* ── Gradient Definitions ───────────────────────────────── */
-  --gradient-primary:  linear-gradient(135deg, hsl(258,75%,60%) 0%, hsl(192,90%,45%) 100%);
-  --gradient-hero:     linear-gradient(135deg, hsl(225,18%,8%) 0%, hsl(258,30%,14%) 50%, hsl(225,18%,8%) 100%);
-  --gradient-card:     linear-gradient(135deg, hsl(225,15%,12%) 0%, hsl(225,12%,16%) 100%);
-  --gradient-easy:     linear-gradient(135deg, hsl(142,60%,16%) 0%, hsl(142,50%,12%) 100%);
-  --gradient-medium:   linear-gradient(135deg, hsl(38,70%,16%)  0%, hsl(38,60%,12%)  100%);
-  --gradient-hard:     linear-gradient(135deg, hsl(0,55%,18%)   0%, hsl(0,50%,12%)   100%);
+  /* ── Glassmorphism ────────────────────────────────────── */
+  --glass-bg:            rgba(30, 41, 59, 0.80);
+  --glass-border:        rgba(255, 255, 255, 0.06);
+  --glass-blur:          blur(12px);
 
-  /* ── Shadows ─────────────────────────────────────────────── */
-  --shadow-xs:   0 1px  2px  hsl(225 18% 4% / 0.4);
-  --shadow-sm:   0 2px  4px  hsl(225 18% 4% / 0.5);
-  --shadow-md:   0 4px  12px hsl(225 18% 4% / 0.6);
-  --shadow-lg:   0 8px  24px hsl(225 18% 4% / 0.7);
-  --shadow-xl:   0 16px 48px hsl(225 18% 4% / 0.8);
-  --shadow-glow: 0 0   20px  hsl(258 75% 60% / 0.3);
-
-  /* ── Glassmorphism ──────────────────────────────────────── */
-  --glass-bg:      hsl(225 15% 12% / 0.7);
-  --glass-border:  hsl(225 12% 30% / 0.5);
-  --glass-blur:    blur(16px);
-
-  /* ── Typography ─────────────────────────────────────────── */
-  --font-sans:   'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-
-  --text-xs:     0.75rem;   /* 12px */
-  --text-sm:     0.875rem;  /* 14px */
-  --text-base:   1rem;      /* 16px */
-  --text-lg:     1.125rem;  /* 18px */
-  --text-xl:     1.25rem;   /* 20px */
-  --text-2xl:    1.5rem;    /* 24px */
-  --text-3xl:    1.875rem;  /* 30px */
-  --text-4xl:    2.25rem;   /* 36px */
-  --text-5xl:    3rem;      /* 48px */
-
-  --fw-light:    300;
-  --fw-normal:   400;
-  --fw-medium:   500;
-  --fw-semibold: 600;
-  --fw-bold:     700;
-  --fw-extrabold:800;
-
-  --leading-tight: 1.25;
-  --leading-snug:  1.375;
-  --leading-normal:1.5;
-  --leading-relaxed:1.625;
-
-  /* ── Spacing ─────────────────────────────────────────────── */
-  --space-1:   0.25rem;   /* 4px  */
-  --space-2:   0.5rem;    /* 8px  */
-  --space-3:   0.75rem;   /* 12px */
-  --space-4:   1rem;      /* 16px */
-  --space-5:   1.25rem;   /* 20px */
-  --space-6:   1.5rem;    /* 24px */
-  --space-8:   2rem;      /* 32px */
-  --space-10:  2.5rem;    /* 40px */
-  --space-12:  3rem;      /* 48px */
-  --space-16:  4rem;      /* 64px */
-  --space-20:  5rem;      /* 80px */
-  --space-24:  6rem;      /* 96px */
-
-  /* ── Border Radius ──────────────────────────────────────── */
-  --radius-xs:  0.25rem;   /* 4px  */
-  --radius-sm:  0.5rem;    /* 8px  */
-  --radius-md:  0.75rem;   /* 12px */
-  --radius-lg:  1rem;      /* 16px */
-  --radius-xl:  1.5rem;    /* 24px */
-  --radius-2xl: 2rem;      /* 32px */
-  --radius-full:9999px;
-
-  /* ── Layout Dimensions ──────────────────────────────────── */
-  --navbar-height:  64px;
-  --sidebar-width:  260px;
-  --sidebar-collapsed-width: 72px;
-  --content-max-width: 1400px;
-
-  /* ── Transitions ─────────────────────────────────────────── */
-  --transition-fast:    150ms ease;
-  --transition-base:    250ms ease;
-  --transition-slow:    400ms ease;
-  --transition-bounce:  300ms cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* ── Z-Index Scale ───────────────────────────────────────── */
-  --z-base:     1;
-  --z-dropdown: 100;
-  --z-sticky:   200;
-  --z-overlay:  300;
-  --z-modal:    400;
-  --z-toast:    500;
-  --z-tooltip:  600;
+  /* ── Code Block ───────────────────────────────────────── */
+  --code-bg:             #0D1117;
+  --code-text:           #E2E8F0;
 }
 
-/* ── Light Theme ──────────────────────────────────────────── */
+/* ============================================================
+   2. LIGHT THEME
+   ============================================================ */
 [data-theme="light"] {
-  --bg-base:        hsl(220, 20%, 98%);
-  --bg-surface:     hsl(0,   0%,  100%);
-  --bg-elevated:    hsl(220, 15%, 97%);
-  --bg-overlay:     hsl(220, 12%, 93%);
-  --bg-subtle:      hsl(220, 10%, 90%);
 
-  --text-primary:   hsl(225, 25%, 12%);
-  --text-secondary: hsl(225, 15%, 38%);
-  --text-muted:     hsl(225, 10%, 55%);
-  --text-disabled:  hsl(225,  8%, 70%);
+  /* ── Background & Surface ─────────────────────────────── */
+  --color-bg:           #F1F5F9;
+  --color-surface:      #FFFFFF;
+  --color-surface-2:    #F8FAFC;
+  --color-surface-3:    #E2E8F0;
 
-  --border-subtle:  hsl(220, 15%, 90%);
-  --border-default: hsl(220, 12%, 82%);
-  --border-strong:  hsl(220, 10%, 68%);
+  /* ── Primary Brand (unchanged) ────────────────────────── */
+  --color-primary:       #6366F1;
+  --color-primary-hover: #4F46E5;
+  --color-primary-light: rgba(99, 102, 241, 0.10);
+  --color-primary-glow:  rgba(99, 102, 241, 0.25);
 
-  --glass-bg:     hsl(0 0% 100% / 0.8);
-  --glass-border: hsl(220 15% 85% / 0.7);
+  /* ── Semantic Colors (unchanged) ──────────────────────── */
+  --color-success:       #16A34A;
+  --color-success-light: rgba(22, 163, 74, 0.10);
+  --color-warning:       #D97706;
+  --color-warning-light: rgba(217, 119, 6, 0.10);
+  --color-danger:        #DC2626;
+  --color-danger-hover:  #B91C1C;
+  --color-danger-light:  rgba(220, 38, 38, 0.10);
+  --color-info:          #0284C7;
+  --color-info-light:    rgba(2, 132, 199, 0.10);
 
-  --shadow-xs:   0 1px  2px  hsl(220 15% 50% / 0.08);
-  --shadow-sm:   0 2px  4px  hsl(220 15% 50% / 0.10);
-  --shadow-md:   0 4px  12px hsl(220 15% 50% / 0.12);
-  --shadow-lg:   0 8px  24px hsl(220 15% 50% / 0.14);
-  --shadow-xl:   0 16px 48px hsl(220 15% 50% / 0.16);
+  /* ── Text ─────────────────────────────────────────────── */
+  --color-text:          #0F172A;
+  --color-text-secondary:#475569;
+  --color-text-muted:    #94A3B8;
+  --color-text-inverse:  #F8FAFC;
+  --color-text-link:     #4F46E5;
+  --color-text-link-hover:#6366F1;
+
+  /* ── Borders ──────────────────────────────────────────── */
+  --color-border:        #E2E8F0;
+  --color-border-light:  #F1F5F9;
+  --color-border-focus:  #6366F1;
+
+  /* ── Difficulty Badge Colors ──────────────────────────── */
+  --color-easy:          #16A34A;
+  --color-easy-light:    rgba(22, 163, 74, 0.10);
+  --color-medium:        #D97706;
+  --color-medium-light:  rgba(217, 119, 6, 0.10);
+  --color-hard:          #DC2626;
+  --color-hard-light:    rgba(220, 38, 38, 0.10);
+
+  /* ── Scrollbar ────────────────────────────────────────── */
+  --scrollbar-thumb:     #CBD5E1;
+  --scrollbar-track:     #F1F5F9;
+  --scrollbar-thumb-hover:#94A3B8;
+
+  /* ── Overlay ──────────────────────────────────────────── */
+  --color-overlay:       rgba(15, 23, 42, 0.50);
+
+  /* ── Glassmorphism ────────────────────────────────────── */
+  --glass-bg:            rgba(255, 255, 255, 0.80);
+  --glass-border:        rgba(0, 0, 0, 0.06);
+  --glass-blur:          blur(12px);
+
+  /* ── Code Block ───────────────────────────────────────── */
+  --code-bg:             #F1F5F9;
+  --code-text:           #1E293B;
+}
+
+/* ============================================================
+   3. TYPOGRAPHY SCALE
+   Typeface: Poppins (Google Fonts)
+   ============================================================ */
+:root {
+  /* ── Font Family ──────────────────────────────────────── */
+  --font-primary:  'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:     'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* ── Font Weights ─────────────────────────────────────── */
+  --fw-light:      300;
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-semibold:   600;
+  --fw-bold:       700;
+
+  /* ── Font Sizes ───────────────────────────────────────── */
+  --text-xs:      0.75rem;    /* 12px */
+  --text-sm:      0.875rem;   /* 14px */
+  --text-base:    1rem;       /* 16px */
+  --text-lg:      1.125rem;   /* 18px */
+  --text-xl:      1.25rem;    /* 20px */
+  --text-2xl:     1.5rem;     /* 24px */
+  --text-3xl:     1.875rem;   /* 30px */
+  --text-4xl:     2.25rem;    /* 36px */
+  --text-5xl:     3rem;       /* 48px */
+  --text-6xl:     3.75rem;    /* 60px */
+
+  /* ── Line Heights ─────────────────────────────────────── */
+  --leading-none:   1;
+  --leading-tight:  1.25;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.625;
+  --leading-loose:  2;
+
+  /* ── Letter Spacing ───────────────────────────────────── */
+  --tracking-tight:  -0.025em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.025em;
+  --tracking-wider:   0.05em;
+  --tracking-widest:  0.1em;
+}
+
+/* ============================================================
+   4. SPACING SCALE
+   ============================================================ */
+:root {
+  --space-0:   0px;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32:  128px;
+
+  /* ── Layout ───────────────────────────────────────────── */
+  --sidebar-width:         260px;
+  --sidebar-collapsed:      70px;
+  --navbar-height:          64px;
+  --container-max-width:  1280px;
+  --content-max-width:     960px;
+}
+
+/* ============================================================
+   5. BORDER RADIUS
+   ============================================================ */
+:root {
+  --radius-none:   0px;
+  --radius-sm:     6px;
+  --radius-md:     8px;
+  --radius-lg:     12px;
+  --radius-xl:     16px;
+  --radius-2xl:    24px;
+  --radius-3xl:    32px;
+  --radius-full:   9999px;
+}
+
+/* ============================================================
+   6. SHADOWS
+   ============================================================ */
+:root,
+[data-theme="dark"] {
+  --shadow-xs:     0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-sm:     0 2px 4px rgba(0, 0, 0, 0.30);
+  --shadow-md:     0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg:     0 8px 24px rgba(0, 0, 0, 0.40);
+  --shadow-xl:     0 16px 40px rgba(0, 0, 0, 0.45);
+  --shadow-2xl:    0 24px 64px rgba(0, 0, 0, 0.50);
+
+  /* ── Component-specific shadows ──────────────────────── */
+  --shadow-card:    0 2px 8px rgba(0, 0, 0, 0.30), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(99, 102, 241, 0.20);
+  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-modal:   0 24px 64px rgba(0, 0, 0, 0.60), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-btn:     0 2px 4px rgba(0, 0, 0, 0.30);
+  --shadow-btn-primary: 0 4px 14px rgba(99, 102, 241, 0.40);
+  --shadow-input:   0 0 0 3px rgba(99, 102, 241, 0.20);
+  --shadow-glow:    0 0 20px rgba(99, 102, 241, 0.35);
+}
+
+[data-theme="light"] {
+  --shadow-xs:     0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-sm:     0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md:     0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-lg:     0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl:     0 16px 40px rgba(0, 0, 0, 0.14);
+  --shadow-2xl:    0 24px 64px rgba(0, 0, 0, 0.16);
+
+  --shadow-card:    0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.20);
+  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-modal:   0 24px 64px rgba(0, 0, 0, 0.20), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-btn:     0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-btn-primary: 0 4px 14px rgba(99, 102, 241, 0.30);
+  --shadow-input:   0 0 0 3px rgba(99, 102, 241, 0.15);
+  --shadow-glow:    0 0 20px rgba(99, 102, 241, 0.25);
+}
+
+/* ============================================================
+   7. TRANSITIONS
+   ============================================================ */
+:root {
+  --transition-fast:   all 0.15s ease;
+  --transition-base:   all 0.20s ease;
+  --transition-slow:   all 0.30s ease;
+  --transition-theme:  background-color 0.25s ease,
+                       color 0.25s ease,
+                       border-color 0.25s ease,
+                       box-shadow 0.25s ease;
+  --transition-transform: transform 0.20s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================================
+   8. Z-INDEX SCALE
+   ============================================================ */
+:root {
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-fixed:    300;
+  --z-overlay:  400;
+  --z-modal:    500;
+  --z-toast:    600;
+  --z-tooltip:  700;
 }

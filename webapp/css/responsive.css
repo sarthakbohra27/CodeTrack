@@ -1,54 +1,294 @@
 /* ============================================================
-   CodeTrack – responsive.css — Media Queries
+   CodeTrack – Responsive Breakpoints
+   ============================================================
+   Breakpoints:
+   - Mobile:        < 480px
+   - Tablet:        480px – 768px
+   - Laptop:        768px – 1024px
+   - Desktop:       1024px – 1280px
+   - Large Desktop: > 1280px
+   ============================================================
+   TABLE OF CONTENTS
+   1. Responsive Visibility Helpers
+   2. Mobile (< 480px)
+   3. Tablet (≤ 768px)
+   4. Laptop (≤ 1024px)
+   5. Desktop (≥ 1024px)
+   6. Large Desktop (≥ 1280px)
+   7. Responsive Utilities (grid, flex)
+   8. Print Styles
    ============================================================ */
 
-/* ── Breakpoints
-   xs:  < 480px   (Small phones)
-   sm:  480-640px (Large phones)
-   md:  640-768px (Tablets portrait)
-   lg:  768-1024px(Tablets landscape)
-   xl:  > 1024px  (Desktops)
-   ─────────────────────────────────────────────────────────── */
+/* ============================================================
+   1. RESPONSIVE VISIBILITY HELPERS
+   ============================================================ */
 
-@media (max-width: 1200px) {
-  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+/* Show only on specific breakpoints */
+.show-mobile  { display: none; }
+.show-tablet  { display: none; }
+.show-desktop { display: block; }
+
+/* ============================================================
+   2. MOBILE (max-width: 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+
+  /* ── Typography scale down ──────────────────────────────── */
+  h1, .h1 { font-size: var(--text-2xl); }
+  h2, .h2 { font-size: var(--text-xl); }
+  h3, .h3 { font-size: var(--text-lg); }
+  h4, .h4 { font-size: var(--text-base); }
+
+  .page-title    { font-size: var(--text-xl); }
+  .section-title { font-size: var(--text-base); }
+
+  /* ── Container ──────────────────────────────────────────── */
+  .container { padding-inline: var(--space-4); }
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  .app-content {
+    margin-left: 0 !important;
+    padding: var(--space-4);
+  }
+
+  /* ── Visibility ─────────────────────────────────────────── */
+  .hide-mobile  { display: none !important; }
+  .show-mobile  { display: block !important; }
+
+  /* ── Grids stack to 1 column ────────────────────────────── */
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Stat cards row wraps ───────────────────────────────── */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ── Form row stack ─────────────────────────────────────── */
+  .form-row { grid-template-columns: 1fr; }
+
+  /* ── Buttons full-width ─────────────────────────────────── */
+  .btn-block-mobile {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Pagination adjust ──────────────────────────────────── */
+  .pagination {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  /* ── Table ──────────────────────────────────────────────── */
+  .table-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* ── Toast ──────────────────────────────────────────────── */
+  .toast-container {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    left: var(--space-4);
+  }
+
+  .toast {
+    min-width: unset;
+    width: 100%;
+  }
 }
 
-@media (max-width: 1024px) {
-  .main-content  { margin-left: 0; max-width: 100%; padding: var(--space-6); }
-  .charts-row    { grid-template-columns: 1fr; }
-  .app-sidebar   { transform: translateX(-100%); z-index: var(--z-overlay); }
-  .app-sidebar.open { transform: translateX(0); box-shadow: var(--shadow-xl); }
-}
-
+/* ============================================================
+   3. TABLET (max-width: 768px)
+   ============================================================ */
 @media (max-width: 768px) {
-  .stats-grid    { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
-  .page-header   { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
-  .form-row      { grid-template-columns: 1fr; }
-  .hero          { flex-direction: column; text-align: center; }
-  .hero-cta      { justify-content: center; }
-  .hero-stats    { justify-content: center; }
-  .hero-visual   { display: none; }
-  .features-grid { grid-template-columns: 1fr; }
+
+  /* ── Typography ─────────────────────────────────────────── */
+  h1, .h1 { font-size: var(--text-3xl); }
+  h2, .h2 { font-size: var(--text-2xl); }
+
+  /* ── Container ──────────────────────────────────────────── */
+  .container { padding-inline: var(--space-5); }
+
+  /* ── App content (sidebar hides) ────────────────────────── */
+  .app-content {
+    margin-left: 0;
+    padding: var(--space-5);
+  }
+
+  /* ── Sidebar becomes off-canvas ─────────────────────────── */
+  .app-sidebar {
+    position: fixed;
+    left: calc(-1 * var(--sidebar-width));
+    top: 0;
+    height: 100vh;
+    z-index: var(--z-overlay);
+    transition: left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .app-sidebar.open {
+    left: 0;
+  }
+
+  /* ── Sidebar overlay ────────────────────────────────────── */
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-overlay);
+    z-index: calc(var(--z-overlay) - 1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* ── Hamburger menu becomes visible ─────────────────────── */
+  .navbar-hamburger { display: flex !important; }
+
+  /* ── Visibility ─────────────────────────────────────────── */
+  .hide-tablet  { display: none !important; }
+  .show-tablet  { display: block !important; }
+
+  /* ── Grid adjust ────────────────────────────────────────── */
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ── Stats grid wraps ───────────────────────────────────── */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ── Profile card ───────────────────────────────────────── */
+  .profile-card-stats {
+    gap: var(--space-4);
+  }
+
+  /* ── Pagination simplify ────────────────────────────────── */
+  .pagination-size { display: none; }
 }
 
-@media (max-width: 640px) {
-  .main-content  { padding: var(--space-4); }
-  .stats-grid    { grid-template-columns: 1fr 1fr; }
-  .stat-card-value { font-size: var(--text-2xl); }
-  .auth-form-card { padding: var(--space-5); }
-  .social-buttons { grid-template-columns: 1fr; }
+/* ============================================================
+   4. LAPTOP (max-width: 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+
+  /* ── Sidebar collapses ──────────────────────────────────── */
+  .app-content {
+    margin-left: var(--sidebar-collapsed);
+    padding: var(--space-6);
+  }
+
+  /* ── Grid adjust ────────────────────────────────────────── */
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── Stats grid ─────────────────────────────────────────── */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── Hide desktop-only items ────────────────────────────── */
+  .hide-laptop  { display: none !important; }
+
+  /* ── Navbar search bar shrinks ──────────────────────────── */
+  .navbar-search { max-width: 200px; }
+}
+
+/* ============================================================
+   5. DESKTOP (min-width: 1024px)
+   ============================================================ */
+@media (min-width: 1024px) {
+
+  /* ── Sidebar visible, hamburger hidden ──────────────────── */
+  .navbar-hamburger { display: none; }
+  .sidebar-overlay  { display: none; }
+
+  /* ── Full sidebar visible ───────────────────────────────── */
+  .app-content { margin-left: var(--sidebar-width); }
+
+  /* ── Stats grid 4 columns ───────────────────────────────── */
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .hide-desktop { display: none !important; }
+  .show-desktop { display: block !important; }
+}
+
+/* ============================================================
+   6. LARGE DESKTOP (min-width: 1280px)
+   ============================================================ */
+@media (min-width: 1280px) {
+
+  /* ── Container max-width ────────────────────────────────── */
+  .container {
+    max-width: var(--container-max-width);
+    padding-inline: var(--space-8);
+  }
+
+  /* ── Grid expand ────────────────────────────────────────── */
+  .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* ── Stat cards fit cleanly ─────────────────────────────── */
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================================
+   7. RESPONSIVE UTILITY OVERRIDES
+   ============================================================ */
+
+/* Responsive flex direction */
+@media (max-width: 768px) {
+  .flex-col-mobile { flex-direction: column !important; }
+  .flex-row-mobile { flex-direction: row !important; }
+  .w-full-mobile   { width: 100% !important; }
+  .text-center-mobile { text-align: center !important; }
+  .gap-2-mobile    { gap: var(--space-2) !important; }
+  .gap-3-mobile    { gap: var(--space-3) !important; }
 }
 
 @media (max-width: 480px) {
-  .stats-grid    { grid-template-columns: 1fr; }
-  .hero-title    { font-size: var(--text-3xl); }
-  .btn-lg        { padding: var(--space-3) var(--space-6); font-size: var(--text-sm); }
+  .grid-1-mobile { grid-template-columns: 1fr !important; }
 }
 
-/* ── Print Styles ─────────────────────────────────────────── */
+/* ============================================================
+   8. PRINT STYLES
+   ============================================================ */
 @media print {
-  .app-navbar, .app-sidebar, .btn { display: none !important; }
-  .main-content { margin: 0; padding: 0; max-width: 100%; }
-  body { background: white; color: black; }
+  .app-sidebar,
+  .app-navbar,
+  .btn,
+  .toast-container,
+  .page-loader,
+  .no-print {
+    display: none !important;
+  }
+
+  .app-content {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+
+  body {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+
+  .card,
+  .table-container {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
 }
