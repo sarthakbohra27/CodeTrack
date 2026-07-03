@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CodeTrack – Icon Only SVG
+  Pure hexagon mark — used for favicon, app icon, navbar icon
+  Dimensions: 32 x 36 (scalable)
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 32 36"
+     width="32" height="36"
+     role="img"
+     aria-label="CodeTrack icon">
+  <title>CodeTrack icon</title>
+
+  <defs>
+    <linearGradient id="ct-icon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="ct-icon-inner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.20)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagon body -->
+  <path d="M16 1 L30 9 L30 25 L16 33 L2 25 L2 9 Z"
+        fill="url(#ct-icon-grad)"/>
+  <!-- Highlight -->
+  <path d="M16 1 L30 9 L30 25 L16 33 L2 25 L2 9 Z"
+        fill="url(#ct-icon-inner)"/>
+
+  <!-- < -->
+  <path d="M9 18 L13 14 M9 18 L13 22"
+        stroke="white" stroke-width="2.2" stroke-linecap="round"
+        stroke-linejoin="round" fill="none"/>
+  <!-- / -->
+  <line x1="15" y1="23" x2="18" y2="13"
+        stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- > -->
+  <path d="M20 14 L24 18 M24 18 L20 22"
+        stroke="white" stroke-width="2.2" stroke-linecap="round"
+        stroke-linejoin="round" fill="none"/>
+</svg>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CodeTrack – Stacked Logo SVG
+  Icon centred on top, wordmark below, tagline at bottom
+  Dimensions: 160 x 90
+  Usage: Splash screen, app store, marketing materials
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 160 90"
+     width="160" height="90"
+     role="img"
+     aria-label="CodeTrack stacked logo">
+  <title>CodeTrack</title>
+
+  <defs>
+    <linearGradient id="ct-s-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="ct-s-inner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.18)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── Hexagon centred at (80, 22) ── -->
+  <g transform="translate(65, 0)">
+    <path d="M15 1 L29 9 L29 25 L15 33 L1 25 L1 9 Z"
+          fill="url(#ct-s-grad)"/>
+    <path d="M15 1 L29 9 L29 25 L15 33 L1 25 L1 9 Z"
+          fill="url(#ct-s-inner)"/>
+    <!-- < -->
+    <path d="M8 17 L12 13 M8 17 L12 21"
+          stroke="white" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" fill="none"/>
+    <!-- / -->
+    <line x1="14" y1="22" x2="17" y2="12"
+          stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <!-- > -->
+    <path d="M19 13 L23 17 M23 17 L19 21"
+          stroke="white" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" fill="none"/>
+    <!-- Progress dots -->
+    <circle cx="27" cy="24" r="1.5" fill="#6366F1" opacity="0.9"/>
+    <circle cx="30" cy="21" r="1.2" fill="#8B5CF6" opacity="0.7"/>
+  </g>
+
+  <!-- ── WordMark (centred) ── -->
+  <text x="50" y="52"
+        font-family="'Poppins', -apple-system, sans-serif"
+        font-size="20" font-weight="700"
+        fill="#F8FAFC"
+        text-anchor="start"
+        letter-spacing="-0.5">Code<tspan fill="#8B5CF6">Track</tspan></text>
+
+  <!-- ── Tagline ── -->
+  <text x="80" y="66"
+        font-family="'Poppins', -apple-system, sans-serif"
+        font-size="8" font-weight="400"
+        fill="#94A3B8"
+        text-anchor="middle"
+        letter-spacing="0.8">Track  ·  Analyze  ·  Improve</text>
+</svg>

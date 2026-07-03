@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CodeTrack – Logo SVG (Horizontal)
+  Icon + WordMark + Tagline
+  Dimensions: 220 x 56
+  Usage: Navbar, header, general branding
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 220 56"
+     width="220" height="56"
+     role="img"
+     aria-label="CodeTrack – DSA Progress Tracker">
+  <title>CodeTrack</title>
+  <desc>CodeTrack – DSA Progress Tracker logo</desc>
+
+  <defs>
+    <!-- Primary gradient: Indigo → Violet -->
+    <linearGradient id="ct-grad-h" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <!-- Inner glow / subtle highlight -->
+    <linearGradient id="ct-inner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.18)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── Hexagon Icon (28×32) centred at x=16, y=28 ── -->
+  <g transform="translate(0, 0)">
+    <!-- Hexagon body -->
+    <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z"
+          fill="url(#ct-grad-h)"
+          rx="2"/>
+    <!-- Highlight overlay -->
+    <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z"
+          fill="url(#ct-inner)"/>
+
+    <!-- </> code symbol -->
+    <!-- < -->
+    <path d="M10.5 16 L13.5 13 M10.5 16 L13.5 19"
+          stroke="white" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" fill="none"/>
+    <!-- / -->
+    <line x1="15.5" y1="19.5" x2="17.5" y2="12.5"
+          stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <!-- > -->
+    <path d="M19.5 13 L22.5 16 M22.5 16 L19.5 19"
+          stroke="white" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" fill="none"/>
+
+    <!-- Progress dots (bottom-right of hex) -->
+    <circle cx="26" cy="25" r="1.8" fill="#6366F1" opacity="0.9"/>
+    <circle cx="29" cy="22" r="1.4" fill="#8B5CF6" opacity="0.75"/>
+    <circle cx="30" cy="18" r="1.0" fill="#8B5CF6" opacity="0.5"/>
+  </g>
+
+  <!-- ── WordMark ── -->
+  <!-- "Code" in white -->
+  <text x="38" y="22"
+        font-family="'Poppins', -apple-system, sans-serif"
+        font-size="18" font-weight="700"
+        fill="#F8FAFC"
+        letter-spacing="-0.4">Code</text>
+  <!-- "Track" in primary purple -->
+  <text x="86" y="22"
+        font-family="'Poppins', -apple-system, sans-serif"
+        font-size="18" font-weight="700"
+        fill="#8B5CF6"
+        letter-spacing="-0.4">Track</text>
+
+  <!-- ── Tagline ── -->
+  <text x="38" y="36"
+        font-family="'Poppins', -apple-system, sans-serif"
+        font-size="8.5" font-weight="400"
+        fill="#94A3B8"
+        letter-spacing="0.5">Track  ·  Analyze  ·  Improve</text>
+</svg>
