@@ -1,106 +1,146 @@
 /**
  * ============================================================
- * CodeTrack – DSA Progress Tracker
- * search.js — Live Search Functionality
- * ============================================================
- * Provides real-time search with debouncing.
- * Sends AJAX GET requests to /questions?q=<term>
- * and updates the table without a page reload.
- *
- * Also handles the global navbar search input.
+ * CodeTrack – Search Component JS
+ * Handles: clear button, form submit, keyboard shortcuts
  * ============================================================
  */
+(function () {
+  'use strict';
 
-'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
+    var input     = document.getElementById('search-input');
+    var clearBtn  = document.getElementById('search-clear-btn');
+    var form      = document.getElementById('search-form');
+    var component = form ? form.closest('.search-component') : null;
 
-window.CodeTrack = window.CodeTrack || {};
+    if (!input) return;
 
-CodeTrack.Search = {
-
-    debounceTimer: null,
-    DEBOUNCE_DELAY: 350, // ms
-
-    init() {
-        this.setupGlobalSearch();
-        this.setupPageSearch();
-    },
-
-    // ── Global Navbar Search ──────────────────────────────────
-    setupGlobalSearch() {
-        const input    = document.getElementById('globalSearchInput');
-        const dropdown = document.getElementById('searchDropdown');
-        if (!input || !dropdown) return;
-
-        input.addEventListener('input', CodeTrack.debounce(() => {
-            const query = input.value.trim();
-            if (query.length < 2) {
-                dropdown.innerHTML = '';
-                dropdown.style.display = 'none';
-                return;
-            }
-            this.fetchSuggestions(query, dropdown);
-        }, this.DEBOUNCE_DELAY));
-
-        // Hide on outside click
-        document.addEventListener('click', (e) => {
-            if (!input.contains(e.target)) dropdown.style.display = 'none';
-        });
-    },
-
-    fetchSuggestions(query, dropdown) {
-        // TODO: Replace with real API call
-        // fetch(`/questions?q=${encodeURIComponent(query)}&format=json`)
-        //   .then(r => r.json())
-        //   .then(data => this.renderSuggestions(data, dropdown));
-
-        // Placeholder response
-        dropdown.innerHTML = `<div class="search-placeholder">Search for "<strong>${query}</strong>"</div>`;
-        dropdown.style.display = 'block';
-    },
-
-    renderSuggestions(results, dropdown) {
-        if (!results.length) {
-            dropdown.innerHTML = '<div class="search-no-results">No results found</div>';
-            dropdown.style.display = 'block';
-            return;
-        }
-        dropdown.innerHTML = results.map(q => `
-            <a href="/questions?id=${q.id}" class="search-result-item">
-                <span class="sr-title">${q.title}</span>
-                <span class="badge badge-${q.difficulty.toLowerCase()}">${q.difficulty}</span>
-            </a>
-        `).join('');
-        dropdown.style.display = 'block';
-    },
-
-    // ── Page-level Question Search ────────────────────────────
-    setupPageSearch() {
-        const input = document.getElementById('questionSearchInput');
-        if (!input) return;
-
-        input.addEventListener('input', CodeTrack.debounce((e) => {
-            const query = e.target.value.trim().toLowerCase();
-            this.filterTableRows(query);
-        }, this.DEBOUNCE_DELAY));
-    },
-
-    filterTableRows(query) {
-        const rows = document.querySelectorAll('#questionsTable tbody tr');
-        let visibleCount = 0;
-
-        rows.forEach(row => {
-            const title = row.querySelector('.question-title')?.textContent?.toLowerCase() || '';
-            const match = !query || title.includes(query);
-            row.style.display = match ? '' : 'none';
-            if (match) visibleCount++;
-        });
-
-        // Show empty state if nothing matches
-        const emptyState = document.getElementById('noResultsRow');
-        if (emptyState) emptyState.style.display = visibleCount === 0 ? '' : 'none';
+    /* ── Show/hide clear button ─────────────────────────── */
+    function syncClearBtn() {
+      if (!clearBtn) return;
+      var hasValue = input.value.trim().length > 0;
+      clearBtn.style.display = hasValue ? 'flex' : '';
+      if (component) component.classList.toggle('has-value', hasValue);
     }
-};
 
-document.addEventListener('DOMContentLoaded', () => {
-    CodeTrack.Search.init();
-});
+    input.addEventListener('input',  syncClearBtn);
+    input.addEventListener('change', syncClearBtn);
+    syncClearBtn();
+
+    /* ── Clear button click ─────────────────────────────── */
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        input.value = '';
+        syncClearBtn();
+        input.focus();
+        /* Submit form to reset results */
+        if (form) form.submit();
+      });
+    }
+
+    /* ── Keyboard shortcut: / or Ctrl+K focuses search ─── */
+    document.addEventListener('keydown', function (e) {
+      var tag = (document.activeElement || {}).tagName || '';
+      var inInput = ['INPUT','TEXTAREA','SELECT'].includes(tag);
+
+      if (!inInput && (e.key === '/' || (e.ctrlKey && e.key === 'k'))) {
+        e.preventDefault();
+        input.focus();
+        input.select();
+      }
+
+      if (e.key === 'Escape' && document.activeElement === input) {
+        input.blur();
+      }
+    });
+
+  });
+})();
+
+/* ── CodeTrack.Filter namespace ──────────────────────────── */
+(function () {
+  'use strict';
+  window.CodeTrack = window.CodeTrack || {};
+
+  /**
+   * Apply a filter by redirecting to baseUrl with query params.
+   * Called from filter checkbox onchange handlers.
+   */
+  window.CodeTrack.Filter = {
+    apply: function (checkbox, baseUrl) {
+      var section = document.getElementById('filter-section');
+      if (!section) return;
+
+      /* Collect all checked filters within the filter section */
+      var params = new URLSearchParams(window.location.search);
+
+      /* Remove old values for this filter name */
+      params.delete(checkbox.name);
+
+      /* Add checked values */
+      var all = section.querySelectorAll('input[name="' + checkbox.name + '"]:checked');
+      all.forEach(function (cb) {
+        params.append(checkbox.name, cb.value);
+      });
+
+      /* Keep search param */
+      var q = params.get('q');
+      var newUrl = baseUrl + (params.toString() ? '?' + params.toString() : '');
+      window.location.href = newUrl;
+    },
+
+    reset: function (baseUrl) {
+      window.location.href = baseUrl;
+    }
+  };
+
+  /* ── Filter panel toggles ───────────────────────────────── */
+  document.addEventListener('DOMContentLoaded', function () {
+    var triggers = document.querySelectorAll('.filter-trigger');
+
+    triggers.forEach(function (btn) {
+      var panelId = btn.getAttribute('aria-controls');
+      if (!panelId) return;
+      var panel = document.getElementById(panelId);
+      if (!panel) return;
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        /* Close other panels */
+        triggers.forEach(function (other) {
+          if (other !== btn) {
+            var otherId = other.getAttribute('aria-controls');
+            var otherPanel = document.getElementById(otherId);
+            if (otherPanel) otherPanel.style.display = 'none';
+            other.setAttribute('aria-expanded', 'false');
+          }
+        });
+        var isOpen = panel.style.display !== 'none' && panel.style.display !== '';
+        panel.style.display = isOpen ? 'none' : 'block';
+        btn.setAttribute('aria-expanded', (!isOpen).toString());
+      });
+    });
+
+    /* Close all panels on outside click */
+    document.addEventListener('click', function () {
+      triggers.forEach(function (btn) {
+        var panelId = btn.getAttribute('aria-controls');
+        var panel = document.getElementById(panelId);
+        if (panel) panel.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* Escape closes panels */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        triggers.forEach(function (btn) {
+          var panelId = btn.getAttribute('aria-controls');
+          var panel = document.getElementById(panelId);
+          if (panel) panel.style.display = 'none';
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+})();
