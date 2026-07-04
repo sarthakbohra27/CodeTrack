@@ -125,58 +125,38 @@ CodeTrack/
 │
 ├── webapp/                         # Web resources (served by Tomcat)
 │   │
-│   ├── css/                        # Stylesheets
-│   │   ├── variables.css           # CSS custom properties
-│   │   ├── global.css              # Global / reset styles
-│   │   ├── navbar.css              # Navigation bar
-│   │   ├── sidebar.css             # Sidebar component
-│   │   ├── dashboard.css           # Dashboard layout
-│   │   ├── auth.css                # Login / Register pages
-│   │   ├── forms.css               # Form components
-│   │   ├── analytics.css           # Analytics page
-│   │   ├── profile.css             # Profile page
-│   │   ├── responsive.css          # Media queries
-│   │   └── animations.css          # Keyframe animations
-│   │
-│   ├── js/                         # JavaScript modules
-│   │   ├── app.js                  # App entry point
-│   │   ├── auth.js                 # Auth logic
-│   │   ├── dashboard.js            # Dashboard interactions
-│   │   ├── analytics.js            # Chart rendering
-│   │   ├── validation.js           # Form validation
-│   │   ├── search.js               # Search functionality
-│   │   ├── filters.js              # Filter logic
-│   │   ├── chart.js                # Chart.js configurations
-│   │   └── theme.js                # Theme toggle
-│   │
-│   ├── images/                     # Static images
-│   │
-│   ├── assets/                     # Misc static assets
+│   ├── assets/                     # Static assets
+│   │   ├── css/                    # Modular stylesheets
+│   │   │   ├── base/               # Variables, globals, animations
+│   │   │   ├── layout/             # Navbar, sidebar, footer
+│   │   │   ├── components/         # Buttons, cards, forms, tables
+│   │   │   └── pages/              # Page-specific styles
+│   │   ├── js/                     # JavaScript modules
+│   │   │   ├── theme/              # Theme toggle logic
+│   │   │   ├── common/             # Reusable UI component logic
+│   │   │   ├── auth/               # Auth page logic
+│   │   │   └── dashboard/          # Dashboard logic
+│   │   ├── images/                 # Static images & logos
+│   │   └── fonts/                  # Local fonts
 │   │
 │   ├── components/                 # Reusable JSP fragments
-│   │   ├── navbar.jsp
-│   │   ├── sidebar.jsp
-│   │   ├── footer.jsp
-│   │   ├── header.jsp
-│   │   └── loader.jsp
+│   │   ├── layout/                 # Structural components (navbar, footer)
+│   │   ├── common/                 # UI components (toast, modal, loader)
+│   │   ├── dashboard/              # Dashboard specific components
+│   │   └── auth/                   # Auth components
 │   │
 │   ├── pages/                      # Application JSP pages
 │   │   ├── index.jsp               # Landing / Home page
-│   │   ├── login.jsp               # Login page
-│   │   ├── register.jsp            # Registration page
-│   │   ├── dashboard.jsp           # Main dashboard
-│   │   ├── questions.jsp           # Question list
-│   │   ├── add-question.jsp        # Add new question
-│   │   ├── edit-question.jsp       # Edit question
-│   │   ├── analytics.jsp           # Analytics & charts
-│   │   ├── profile.jsp             # User profile
-│   │   ├── settings.jsp            # App settings
-│   │   └── error.jsp               # Generic error page
+│   │   ├── auth/                   # Login & Register pages
+│   │   ├── dashboard/              # Dashboard page
+│   │   ├── questions/              # Question management pages
+│   │   ├── analytics/              # Analytics pages
+│   │   ├── profile/                # Profile pages
+│   │   ├── settings/               # Settings pages
+│   │   └── errors/                 # Error pages (404, 500)
 │   │
-│   ├── WEB-INF/
-│   │   └── web.xml                 # Deployment descriptor
-│   │
-│   └── favicon.ico
+│   └── WEB-INF/
+│       └── web.xml                 # Deployment descriptor
 │
 ├── test/                           # Integration / manual tests
 │
