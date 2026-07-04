@@ -1,9 +1,10 @@
 <%-- ============================================================
      CodeTrack – Navbar Component
-     Usage: <%@ include file="../components/navbar.jsp" %>
+     Usage: <%@ include file="../components/layout/navbar.jsp" %>
      Params (set as request attributes before include):
        - activePage: "home" | "features" | "about" | "contact"
        - isLoggedIn: true | false (set by AuthFilter)
+     Location: components/layout/navbar.jsp
      ============================================================ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%
@@ -17,7 +18,7 @@
 <!-- ══════════════════════════════════════════════════════════
      NAVBAR
      ══════════════════════════════════════════════════════════ -->
-<link rel="stylesheet" href="<%= ctx %>/css/navbar.css">
+<link rel="stylesheet" href="<%= ctx %>/assets/css/layout/navbar.css">
 
 <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
   <div class="navbar-inner">
@@ -152,4 +153,4 @@
   </div>
 </div>
 
-<script src="<%= ctx %>/js/navbar.js" defer></script>
+<script src="<%= ctx %>/assets/js/common/navbar.js" defer></script>

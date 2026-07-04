@@ -30,18 +30,18 @@
   <meta property="og:title"       content="CodeTrack – Master Your Coding Journey">
   <meta property="og:description" content="Track your DSA practice, analyze your progress, and become placement-ready—all from one powerful dashboard.">
   <meta property="og:url"         content="https://codetrack.app/">
-  <meta property="og:image"       content="<%= ctx %>/images/logo-dark.png">
+  <meta property="og:image"       content="<%= ctx %>/assets/images/logo-dark.png">
 
   <!-- ── Twitter Card ────────────────────────────────────── -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="CodeTrack – DSA Progress Tracker">
   <meta name="twitter:description" content="Track DSA practice, analyze progress, and become placement-ready.">
-  <meta name="twitter:image"       content="<%= ctx %>/images/logo-dark.png">
+  <meta name="twitter:image"       content="<%= ctx %>/assets/images/logo-dark.png">
 
   <!-- ── Favicon ─────────────────────────────────────────── -->
-  <link rel="icon"             type="image/svg+xml" href="<%= ctx %>/images/icon.svg">
-  <link rel="icon"             type="image/png"     href="<%= ctx %>/images/icon-512.png">
-  <link rel="apple-touch-icon"                      href="<%= ctx %>/images/icon-512.png">
+  <link rel="icon"             type="image/svg+xml" href="<%= ctx %>/assets/images/icon.svg">
+  <link rel="icon"             type="image/png"     href="<%= ctx %>/assets/images/icon-512.png">
+  <link rel="apple-touch-icon"                      href="<%= ctx %>/assets/images/icon-512.png">
 
   <!-- ── Fonts ───────────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,19 +54,21 @@
         integrity="sha512-Avb2QiuDEEvB4bZJYdab3bGvVblMzfv0L+07ckOzaJjCXnMZiMjzOWbXFdpPbMQaWxX2deMFB3I2pnYS+qow=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- ── Design System CSS ───────────────────────────────── -->
-  <link rel="stylesheet" href="<%= ctx %>/css/variables.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/global.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/utilities.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/buttons.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/cards.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/animations.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/navbar.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/footer.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/components.css">
-  <link rel="stylesheet" href="<%= ctx %>/css/responsive.css">
-  <!-- Page-specific -->
-  <link rel="stylesheet" href="<%= ctx %>/css/landing.css">
+  <!-- ── Design System CSS (base) ─────────────────────────── -->
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/base/variables.css">
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/base/global.css">
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/base/utilities.css">
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/base/animations.css">
+  <!-- ── Layout ─────────────────────────────────────────── -->
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/layout/navbar.css">
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/layout/footer.css">
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/layout/responsive.css">
+  <!-- ── Components ─────────────────────────────────────── -->
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/components/buttons.css">
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/components/cards.css">
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/components/components.css">
+  <!-- ── Page ───────────────────────────────────────────── -->
+  <link rel="stylesheet" href="<%= ctx %>/assets/css/pages/landing.css">
 
   <!-- Prevent FOWT – apply theme before paint -->
   <script>
@@ -79,17 +81,17 @@
 <!-- ════════════════════════════════════════════════════════════
      PAGE LOADER
      ════════════════════════════════════════════════════════════ -->
-<%@ include file="../components/loader.jsp" %>
+<%@ include file="../components/common/loader.jsp" %>
 
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<%@ include file="../components/navbar.jsp" %>
+<%@ include file="../components/layout/navbar.jsp" %>
 
 <!-- ════════════════════════════════════════════════════════════
      TOAST CONTAINER
      ════════════════════════════════════════════════════════════ -->
-<%@ include file="../components/toast.jsp" %>
+<%@ include file="../components/common/toast.jsp" %>
 
 <!-- ════════════════════════════════════════════════════════════
      MAIN CONTENT
@@ -1054,24 +1056,24 @@
 <!-- ════════════════════════════════════════════════════════════
      FOOTER
      ════════════════════════════════════════════════════════════ -->
-<%@ include file="../components/footer.jsp" %>
+<%@ include file="../components/layout/footer.jsp" %>
 
 <!-- ════════════════════════════════════════════════════════════
      MODALS
      ════════════════════════════════════════════════════════════ -->
-<%@ include file="../components/modal.jsp" %>
+<%@ include file="../components/common/modal.jsp" %>
 
 <!-- ════════════════════════════════════════════════════════════
      JAVASCRIPT
      ════════════════════════════════════════════════════════════ -->
 <!-- Theme (first — prevents FOWT) -->
-<script src="<%= ctx %>/js/theme.js"></script>
+<script src="<%= ctx %>/assets/js/theme/theme.js"></script>
 <!-- Toast -->
-<script src="<%= ctx %>/js/toast.js"></script>
+<script src="<%= ctx %>/assets/js/common/toast.js"></script>
 <!-- Modal -->
-<script src="<%= ctx %>/js/modal.js"></script>
+<script src="<%= ctx %>/assets/js/common/modal.js"></script>
 <!-- Landing page -->
-<script src="<%= ctx %>/js/landing.js"></script>
+<script src="<%= ctx %>/assets/js/common/landing.js"></script>
 
 </body>
 </html>
