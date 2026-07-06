@@ -1,153 +1,141 @@
 <%-- ============================================================
-     CodeTrack – Login Page
-     Phase 2 – Step 5
+     CodeTrack – Login Form (Fragment)
+     ============================================================
+     This file contains ONLY the Login Form.
+     It integrates into the existing auth-layout.jsp container.
      ============================================================ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-    String ctx = request.getContextPath();
-    // Simulate non-logged in state for frontend phase
-    request.setAttribute("isLoggedIn", false);
-%>
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log in to CodeTrack</title>
+<% String ctx = request.getContextPath(); %>
+
+<!-- Link the isolated Login CSS -->
+<link rel="stylesheet" href="<%= ctx %>/assets/css/pages/auth/login.css">
+
+<!-- Login Form Wrapper -->
+<div class="login-wrapper" id="loginWrapper">
   
-  <!-- ── Favicon ─────────────────────────────────────────── -->
-  <link rel="icon"             type="image/svg+xml" href="<%= ctx %>/assets/images/icon.svg">
-  <link rel="icon"             type="image/png"     href="<%= ctx %>/assets/images/icon-512.png">
-  <link rel="apple-touch-icon"                      href="<%= ctx %>/assets/images/icon-512.png">
-
-  <!-- ── Fonts ───────────────────────────────────────────── -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- ── Font Awesome ────────────────────────────────────── -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-Avb2QiuDEEvB4bZJYdab3bGvVblMzfv0L+07ckOzaJjCXnMZiMjzOWbXFdpPbMQaWxX2deMFB3I2pnYS+qow=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-
-  <!-- ── Design System CSS ───────────────────────────────── -->
-  <link rel="stylesheet" href="<%= ctx %>/assets/css/base/variables.css">
-  <link rel="stylesheet" href="<%= ctx %>/assets/css/base/global.css">
-  <link rel="stylesheet" href="<%= ctx %>/assets/css/base/animations.css">
-  <link rel="stylesheet" href="<%= ctx %>/assets/css/components/buttons.css">
-  <link rel="stylesheet" href="<%= ctx %>/assets/css/components/forms.css">
-  <link rel="stylesheet" href="<%= ctx %>/assets/css/components/components.css">
-  
-  <!-- ── Page Specific CSS ───────────────────────────────── -->
-  <link rel="stylesheet" href="<%= ctx %>/assets/css/pages/auth.css">
-
-  <!-- Prevent FOWT -->
-  <script>
-    (function(){var t=localStorage.getItem('codetrack-theme');if(!t){t=window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);})();
-  </script>
-</head>
-
-<body>
-
-  <!-- Loaders & Toasts -->
-  <%@ include file="../../components/common/loader.jsp" %>
-  <%@ include file="../../components/common/toast.jsp" %>
-
-  <div class="auth-page">
-    <main class="auth-main">
-      
-      <!-- Back Button -->
-      <a href="<%= ctx %>/pages/index.jsp" class="auth-back" aria-label="Back to Home">
-        <i class="fa-solid fa-arrow-left"></i> Home
-      </a>
-
-      <!-- Login Card -->
-      <div class="auth-card">
-        
-        <header class="auth-header">
-          <a href="<%= ctx %>/pages/index.jsp" class="auth-logo" aria-label="CodeTrack Home">
-            <img src="<%= ctx %>/assets/images/logo-dark.png" alt="CodeTrack" class="logo-img-dark">
-            <img src="<%= ctx %>/assets/images/logo-light.png" alt="CodeTrack" class="logo-img-light" style="display: none;">
-          </a>
-          <h1 class="auth-title">Welcome back</h1>
-          <p class="auth-subtitle">Log in to track your DSA progress</p>
-        </header>
-
-        <!-- OAuth / Social Logins -->
-        <div class="auth-social">
-          <button class="btn-social" type="button">
-            <i class="fa-brands fa-github"></i> Continue with GitHub
-          </button>
-          <button class="btn-social" type="button">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" style="width: 18px; height: 18px;">
-            Continue with Google
-          </button>
-        </div>
-
-        <div class="auth-divider">or log in with email</div>
-
-        <!-- Email Login Form -->
-        <form class="auth-form" action="#" method="POST" id="loginForm">
-          
-          <div class="form-group">
-            <label class="form-label" for="email">Email address</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email">
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label class="form-label" for="password">Password</label>
-              <a href="#" class="forgot-link" tabindex="-1">Forgot password?</a>
-            </div>
-            <div class="password-wrapper">
-              <input type="password" id="password" name="password" class="form-input" placeholder="••••••••" required autocomplete="current-password">
-              <button type="button" class="password-toggle" aria-label="Toggle password visibility" tabindex="-1">
-                <i class="fa-regular fa-eye"></i>
-              </button>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary auth-submit">Log In</button>
-        </form>
-
-        <footer class="auth-footer">
-          Don't have an account? <a href="<%= ctx %>/pages/auth/register.jsp">Sign up</a>
-        </footer>
-
-      </div>
-    </main>
+  <div class="login-header">
+    <h1 class="login-title">Welcome Back 👋</h1>
+    <p class="login-subtitle">Sign in to continue your coding journey.</p>
   </div>
 
-  <!-- ── Scripts ─────────────────────────────────────────── -->
-  <script src="<%= ctx %>/assets/js/theme/theme.js"></script>
-  <script src="<%= ctx %>/assets/js/common/toast.js"></script>
-  <script src="<%= ctx %>/assets/js/auth/auth.js"></script>
-  
-  <script>
-    // Simple inline script to swap logo based on theme (handled normally by theme.js, but manual here for auth pages)
-    document.addEventListener('DOMContentLoaded', () => {
-      const updateLogo = () => {
-        const theme = document.documentElement.getAttribute('data-theme');
-        const darkLogo = document.querySelector('.logo-img-dark');
-        const lightLogo = document.querySelector('.logo-img-light');
-        if (darkLogo && lightLogo) {
-          if (theme === 'light') {
-            darkLogo.style.display = 'none';
-            lightLogo.style.display = 'block';
-          } else {
-            darkLogo.style.display = 'block';
-            lightLogo.style.display = 'none';
+  <form id="loginForm" class="login-form" novalidate>
+    
+    <!-- Email Field -->
+    <div class="login-form-group">
+      <label class="login-label" for="email">Email Address</label>
+      <div class="login-input-wrapper">
+        <input type="email" id="email" name="email" class="login-input" placeholder="you@example.com" autocomplete="email" required>
+        <i class="fa-solid fa-circle-exclamation login-validation-icon error-icon"></i>
+        <i class="fa-solid fa-circle-check login-validation-icon success-icon"></i>
+      </div>
+      <span class="login-error-text"></span>
+    </div>
+
+    <!-- Password Field -->
+    <div class="login-form-group password-group">
+      <div class="login-label">
+        <label for="password">Password</label>
+        <a href="#" class="login-forgot-link" tabindex="-1">Forgot Password?</a>
+      </div>
+      <div class="login-input-wrapper">
+        <input type="password" id="password" name="password" class="login-input" placeholder="••••••••" autocomplete="current-password" required>
+        <button type="button" id="passwordToggleBtn" class="login-password-toggle" aria-label="Toggle password visibility" tabindex="-1">
+          <i class="fa-solid fa-eye"></i>
+        </button>
+        <i class="fa-solid fa-circle-exclamation login-validation-icon error-icon"></i>
+        <i class="fa-solid fa-circle-check login-validation-icon success-icon"></i>
+      </div>
+      <span class="login-error-text"></span>
+    </div>
+
+    <!-- Remember Me -->
+    <div class="login-options">
+      <label class="login-checkbox-group">
+        <input type="checkbox" id="remember" name="remember" class="login-checkbox">
+        <span class="login-checkbox-label">Remember me for 30 days</span>
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" id="loginSubmitBtn" class="login-btn login-btn-primary">
+      <span class="btn-text">Sign In</span>
+      <i class="fa-solid fa-spinner spinner"></i>
+    </button>
+
+  </form>
+
+  <div class="login-divider">OR</div>
+
+  <!-- Social Login -->
+  <button type="button" class="login-btn login-btn-social">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google">
+    Continue with Google
+  </button>
+
+  <div class="login-footer">
+    Don't have an account? <a href="<%= ctx %>/pages/auth/register.jsp">Register</a>
+  </div>
+
+</div>
+
+<!-- Load the isolated Login JS -->
+<script src="<%= ctx %>/assets/js/auth/login.js"></script>
+
+<%-- 
+  ============================================================
+  INJECTION SCRIPT (Development Convenience)
+  ============================================================
+  If this page is opened directly in a browser (or via a framework), 
+  and the auth-layout container is missing, this script will 
+  attempt to fetch the layout and inject the form into it. 
+  This respects the strict rule to NOT modify auth-layout.jsp.
+--%>
+<script>
+  (function() {
+    // If the auth layout container doesn't exist around us...
+    if (!document.querySelector('.auth-form-container')) {
+      // 1. Fetch the layout
+      fetch('<%= ctx %>/pages/auth/auth-layout.jsp')
+        .then(response => response.text())
+        .then(html => {
+          // 2. Parse the layout
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          
+          // 3. Find the container in the layout
+          const container = doc.querySelector('.auth-form-container');
+          if (container) {
+            // 4. Move our form into the container
+            const formHtml = document.getElementById('loginWrapper').outerHTML;
+            const cssHtml = document.querySelector('link[href*="login.css"]').outerHTML;
+            const jsHtml = document.querySelector('script[src*="login.js"]').outerHTML;
+            
+            container.innerHTML = cssHtml + formHtml;
+            
+            // 5. Replace current document with the new layout
+            document.open();
+            document.write(doc.documentElement.outerHTML);
+            document.close();
+
+            // Re-evaluate the script since document.write strips execution
+            const script = document.createElement('script');
+            script.src = '<%= ctx %>/assets/js/auth/login.js';
+            document.body.appendChild(script);
           }
-        }
-      };
+        })
+        .catch(err => console.warn('Could not auto-inject into auth layout:', err));
+    } else {
+      // If the container exists, replace its inner placeholder text
+      const container = document.querySelector('.auth-form-container');
+      const wrapper = document.getElementById('loginWrapper');
       
-      updateLogo();
-      
-      // Listen for theme toggle clicks if added later
-      const observer = new MutationObserver(updateLogo);
-      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-    });
-  </script>
-</body>
-</html>
+      // Make sure we don't infinitely append. If there's placeholder text, clear it.
+      if (container.innerHTML.includes('Authentication Form Here')) {
+         container.innerHTML = '';
+         container.appendChild(document.querySelector('link[href*="login.css"]'));
+         container.appendChild(wrapper);
+         container.appendChild(document.querySelector('script[src*="login.js"]'));
+      }
+    }
+  })();
+</script>
